@@ -278,7 +278,7 @@ function DateChange() {
               </p>
 
               <a
-                href={`https://wa.me/919560099481?text=${whatsappReschedule}`}
+                href={whatsappRescheduleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-5 py-3 text-xs font-bold text-white shadow-md transition-all cursor-pointer"

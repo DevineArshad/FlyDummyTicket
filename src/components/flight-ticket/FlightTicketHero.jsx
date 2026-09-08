@@ -306,15 +306,25 @@ function FlightTicketHero() {
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Price</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black text-slate-900">₹399</span>
-                  <span className="text-xs text-slate-500 font-medium">/ approx. $5 USD</span>
+                  <span className="text-3xl font-black text-slate-900">₹350</span>
+                  <span className="text-xs text-slate-500 font-medium">/ approx. $4.20 USD</span>
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">
                   ✓ Valid for 7–14 days with verified PNR
                 </p>
               </div>
 
-              <div className="w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
+                <a
+                  href="/sample-eticket.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-xl border border-blue-200 bg-blue-50/70 hover:bg-blue-100/70 px-4 py-3.5 text-xs font-bold text-[#1D68E2] transition cursor-pointer"
+                >
+                  <FileCheck size={14} />
+                  <span>Sample PDF</span>
+                </a>
+
                 <a
                   href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"

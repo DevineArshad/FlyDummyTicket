@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import airportCanopyImg from "../../assets/images/airport_terminal_canopy.jpg";
 import {
   ArrowRight,
+  CheckCircle2,
   ChevronRight,
   Clock,
   CreditCard,
@@ -28,41 +29,52 @@ import {
 
 const services = [
   {
-    label: "Flight Reservation (Dummy Ticket)",
+    label: "Dummy Flight Ticket (₹350)",
     icon: Plane,
     href: "/services/flight-reservation",
   },
   {
-    label: "Hotel Booking (Reservation)",
+    label: "Dummy Hotel Booking (₹250)",
     icon: Hotel,
     href: "/services/hotel-booking",
   },
   {
-    label: "Flight + Hotel Combo",
+    label: "Flight + Hotel Combo (₹500)",
     icon: Ticket,
     href: "/services/flight-hotel-package",
   },
   {
-    label: "Return / Onward Ticket",
+    label: "Return Ticket for Immigration (₹1,000)",
     icon: RefreshCw,
     href: "/services/return-ticket",
   },
   {
-    label: "Date Change (Free)",
+    label: "Travel Medical Insurance (₹400)",
+    icon: Shield,
+    href: "/contact",
+  },
+  {
+    label: "Ok To Board (OTB) Clearance (₹250)",
+    icon: CheckCircle2,
+    href: "/contact",
+  },
+  {
+    label: "Free Date Change Service",
     icon: Clock,
     href: "/services/date-change",
   },
   {
-    label: "Visa & Embassy Guidance",
+    label: "Inspect Air India Sample PDF",
     icon: FileText,
-    href: "/visa-guide",
+    href: "/sample-eticket.pdf",
+    isExternal: true,
   },
 ];
 
 const quickLinks = [
   { label: "Home", icon: Home, href: "/" },
   { label: "How It Works", icon: Settings, href: "/how-it-works" },
-  { label: "Pricing & Packages", icon: Tag, href: "/#packages" },
+  { label: "Pricing & Packages", icon: Tag, href: "/#services" },
   { label: "Visa & Embassies", icon: FileCheck2, href: "/visa-guide" },
   { label: "Frequently Asked Questions", icon: HelpCircle, href: "/faq" },
   { label: "Travel Blog", icon: Newspaper, href: "/blog" },
@@ -272,9 +284,27 @@ function Footer() {
               Our Services
             </h3>
 
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-5 space-y-2.5">
               {services.map((item, i) => {
                 const Icon = item.icon;
+                if (item.isExternal) {
+                  return (
+                    <li key={i}>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between text-xs sm:text-[13px] text-slate-600 hover:text-[#1D68E2] transition-colors"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <Icon size={15} className="text-slate-400 group-hover:text-[#1D68E2] transition-colors" />
+                          <span>{item.label}</span>
+                        </div>
+                        <ChevronRight size={14} className="text-slate-300 group-hover:text-[#1D68E2] group-hover:translate-x-0.5 transition-all" />
+                      </a>
+                    </li>
+                  );
+                }
                 return (
                   <li key={i}>
                     <Link

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -7,37 +7,44 @@ import {
   Menu,
   MessageCircle,
   X,
+  Sparkles,
 } from "lucide-react";
 
 const services = [
   {
     title: "Dummy Flight Ticket",
-    description: "Flight reservation for travel documentation",
+    description: "Embassy verifiable airline PNR reservation",
+    price: "₹350",
     href: "/services/flight-reservation",
   },
   {
     title: "Dummy Hotel Booking",
-    description: "Hotel reservation for your travel plan",
+    description: "Confirmed hotel voucher for visa proof",
+    price: "₹250",
     href: "/services/hotel-booking",
   },
   {
     title: "Flight + Hotel Package",
-    description: "Combined travel documentation package",
+    description: "Complete matching travel itinerary bundle",
+    price: "₹500",
     href: "/services/flight-hotel-package",
   },
   {
-    title: "Return Ticket",
-    description: "For immigration and proof of return",
+    title: "Proof of Return Ticket",
+    description: "For immigration counters & border clearance",
+    price: "₹1,000",
     href: "/services/return-ticket",
   },
   {
-    title: "Free Date Change",
-    description: "Reschedule travel dates for your visa",
-    href: "/services/date-change",
+    title: "Travel Medical Insurance",
+    description: "Schengen & embassy approved medical cover",
+    price: "₹400",
+    href: "/contact",
   },
   {
     title: "Visa & Embassy Guidance",
-    description: "Consulate requirements & checklists",
+    description: "Consulate requirements & document checklists",
+    price: "Guide",
     href: "/visa-guide",
   },
 ];
@@ -54,7 +61,58 @@ function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [currency, setCurrency] = useState("INR");
 
+  const servicesRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 180);
+  };
+
+  // Close on outside click or Escape key
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target)
+      ) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   const closeMenus = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
   };
@@ -112,72 +170,122 @@ function Header() {
           </Link>
 
           {/* DESKTOP NAVIGATION */}
-          <nav className="mx-auto hidden h-full items-center 2xl:flex">
-            <div className="relative h-full">
+          <nav className="mx-auto hidden h-full items-stretch xl:flex">
+            {/* SERVICES DROPDOWN WITH HOVER & CLICK SUPPORT */}
+            <div
+              ref={servicesRef}
+              className="services-nav-group relative flex h-full items-center"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <button
                 type="button"
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="flex h-full items-center gap-1.5 px-5 text-sm font-semibold text-heading transition-colors hover:text-brand-blue"
+                onClick={() => setIsServicesOpen((prev) => !prev)}
+                className={`services-nav-button flex h-full items-center gap-1.5 px-4 text-sm font-semibold transition-colors ${
+                  isServicesOpen ? "is-open text-brand-blue" : "text-heading"
+                }`}
                 aria-expanded={isServicesOpen}
+                aria-haspopup="true"
+                id="services-menu-trigger"
               >
                 Services
-
                 <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-200 ${
-                    isServicesOpen ? "rotate-180" : ""
+                  size={15}
+                  className={`services-chevron transition-transform duration-200 ${
+                    isServicesOpen ? "is-open text-brand-blue" : ""
                   }`}
                 />
               </button>
 
-              {isServicesOpen && (
-                <div className="absolute left-0 top-[calc(100%-8px)] w-[560px] rounded-2xl border border-border bg-white p-3 shadow-floating">
-                  <div className="border-b border-border px-3 pb-3 pt-2">
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-blue">
-                      Our Services
-                    </p>
-
-                    <p className="mt-1 text-sm text-body">
-                      Choose the travel document you need.
-                    </p>
+              {/* DROPDOWN MENU CONTAINER */}
+              <div
+                className={`services-dropdown-menu absolute left-0 top-full z-50 pt-1 ${
+                  isServicesOpen ? "is-open" : ""
+                }`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="w-[580px] rounded-2xl border border-border bg-white p-3.5 shadow-floating">
+                  <div className="flex items-center justify-between border-b border-border/80 px-3 pb-3 pt-1.5">
+                    <div>
+                      <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-blue">
+                        <Sparkles size={13} />
+                        Our Services & Pricing
+                      </p>
+                      <p className="mt-0.5 text-xs text-body">
+                        Embassy-accepted travel reservations with verifiable PNR
+                      </p>
+                    </div>
+                    <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 border border-emerald-200/80">
+                      ● Active Airline PNR
+                    </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-1 pt-3">
+                  <div className="grid grid-cols-2 gap-1.5 pt-3">
                     {services.map((service) => (
                       <Link
                         key={service.title}
                         to={service.href}
-                        onClick={() => setIsServicesOpen(false)}
-                        className="group rounded-xl p-4 transition-colors hover:bg-surface-soft"
+                        onClick={closeMenus}
+                        className="group rounded-xl p-3 transition-all duration-150 hover:bg-surface-soft hover:shadow-xs border border-transparent hover:border-border/60"
                       >
-                        <div className="flex items-start justify-between gap-3">
-                          <div>
-                            <h3 className="text-sm font-bold text-heading">
-                              {service.title}
-                            </h3>
+                        <div className="flex items-start justify-between gap-2.5">
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <h3 className="text-sm font-bold text-heading group-hover:text-brand-blue transition-colors truncate">
+                                {service.title}
+                              </h3>
+                              {service.price && (
+                                <span className={`shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
+                                  service.price === "FREE"
+                                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                    : service.price === "Guide"
+                                    ? "bg-purple-50 text-purple-700 border border-purple-200"
+                                    : "bg-blue-50 text-brand-blue border border-blue-200"
+                                }`}>
+                                  {service.price}
+                                </span>
+                              )}
+                            </div>
 
-                            <p className="mt-1 text-xs leading-5 text-body">
+                            <p className="mt-1 text-xs leading-4.5 text-body">
                               {service.description}
                             </p>
                           </div>
 
                           <ArrowRight
-                            size={16}
-                            className="mt-1 shrink-0 text-body transition-transform group-hover:translate-x-1 group-hover:text-brand-blue"
+                            size={15}
+                            className="mt-1 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-brand-blue"
                           />
                         </div>
                       </Link>
                     ))}
                   </div>
+
+                  {/* QUICK WHATSAPP ASSISTANCE FOOTER */}
+                  <div className="mt-2.5 flex items-center justify-between rounded-xl bg-slate-50 px-3.5 py-2.5 border border-slate-100">
+                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                      <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>Need instant booking or custom route quote?</span>
+                    </div>
+                    <a
+                      href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20assistance%20with%20a%20ticket"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
+                    >
+                      WhatsApp Us <ArrowRight size={12} />
+                    </a>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
 
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="flex h-full items-center px-5 text-sm font-semibold text-heading transition-colors hover:text-brand-blue"
+                className="flex h-full items-center px-4 text-sm font-semibold text-heading transition-colors hover:text-brand-blue"
               >
                 {item.label}
               </Link>
@@ -217,7 +325,7 @@ function Header() {
             {/* DESKTOP SUPPORT */}
             <Link
               to="/contact"
-              className="hidden items-center gap-2 text-sm font-semibold text-heading transition-colors hover:text-brand-blue 2xl:flex"
+              className="hidden items-center gap-2 text-sm font-semibold text-heading transition-colors hover:text-brand-blue xl:flex"
             >
               <Headphones size={17} />
               Support
@@ -239,7 +347,7 @@ function Header() {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
                 setIsServicesOpen(false);
               }}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-heading transition-colors hover:bg-surface-soft 2xl:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-heading transition-colors hover:bg-surface-soft xl:hidden"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -251,7 +359,7 @@ function Header() {
 
       {/* TABLET / MOBILE MENU */}
       {isMobileMenuOpen && (
-        <div className="absolute left-0 top-full w-full border-b border-border bg-white shadow-floating 2xl:hidden">
+        <div className="absolute left-0 top-full w-full border-b border-border bg-white shadow-floating xl:hidden">
           <div className="mx-auto max-w-[1440px] px-5 py-6 sm:px-6 lg:px-8">
 
             {/* CURRENCY ONLY ON MOBILE */}
@@ -302,9 +410,22 @@ function Header() {
                     className="group flex items-center justify-between border-b border-border py-4 last:border-b-0"
                   >
                     <div>
-                      <h3 className="text-[15px] font-bold text-heading">
-                        {service.title}
-                      </h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-[15px] font-bold text-heading">
+                          {service.title}
+                        </h3>
+                        {service.price && (
+                          <span className={`shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
+                            service.price === "FREE"
+                              ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                              : service.price === "Guide"
+                              ? "bg-purple-50 text-purple-700 border border-purple-200"
+                              : "bg-blue-50 text-brand-blue border border-blue-200"
+                          }`}>
+                            {service.price}
+                          </span>
+                        )}
+                      </div>
 
                       <p className="mt-1 text-xs text-body">
                         {service.description}

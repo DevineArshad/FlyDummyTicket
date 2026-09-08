@@ -41,7 +41,7 @@ const fullTicketPoints = [
 
 const dummyTicketPoints = [
   {
-    title: "Just ₹399 flat fee",
+    title: "Just ₹350 flat fee",
     desc: "Affordable for everyone",
   },
   {
@@ -150,11 +150,16 @@ const airlines = [
     ),
   },
   {
-    name: "Etihad Airways",
+    name: "EgyptAir",
     renderLogo: () => (
-      <span className="font-serif font-bold text-[#b4975a] text-xs uppercase tracking-widest">
-        ETIHAD <span className="text-[9px]">AIRWAYS</span>
-      </span>
+      <div className="flex items-center gap-1.5 text-[#002855]">
+        <div className="h-4 w-4 rounded-full bg-[#002855] text-white flex items-center justify-center text-[9px] font-bold">
+          ✈
+        </div>
+        <span className="font-extrabold text-xs tracking-wider uppercase text-[#002855]">
+          EGYPT<span className="text-blue-600 font-black">AIR</span>
+        </span>
+      </div>
     ),
   },
 ];

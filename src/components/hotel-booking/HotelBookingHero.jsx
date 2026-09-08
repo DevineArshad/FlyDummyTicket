@@ -313,7 +313,17 @@ function HotelBookingHero() {
                 </p>
               </div>
 
-              <div className="w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
+                <a
+                  href="/sample-eticket.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100/70 px-4 py-3.5 text-xs font-bold text-emerald-800 transition cursor-pointer"
+                >
+                  <FileCheck2 size={14} />
+                  <span>Sample PDF</span>
+                </a>
+
                 <a
                   href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"

@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronDown,
   Copy,
+  ExternalLink,
   FileCheck2,
   FileText,
   Globe,
@@ -150,10 +151,10 @@ const airportsList = [
 ];
 
 const serviceTabs = [
-  { id: "flight", label: "Flight Ticket", icon: Plane, price: "₹399" },
+  { id: "flight", label: "Flight Ticket", icon: Plane, price: "₹350" },
   { id: "hotel", label: "Hotel Voucher", icon: BedDouble, price: "₹250" },
-  { id: "combo", label: "Flight + Hotel", icon: Building2, price: "₹650" },
-  { id: "onward", label: "Onward Ticket", icon: RotateCcw, price: "₹499" },
+  { id: "combo", label: "Flight + Hotel", icon: Building2, price: "₹500" },
+  { id: "onward", label: "Return Ticket", icon: RotateCcw, price: "₹1,000" },
 ];
 
 function formatDateForDisplay(dateStr) {
@@ -855,6 +856,23 @@ function Hero() {
               </div>
             </div>
 
+            {/* Quick Sample PDF Inspection Strip */}
+            <div className="mt-4 flex items-center justify-between rounded-2xl border border-blue-200/90 bg-blue-50/90 px-4 py-2.5 text-xs text-blue-900 shadow-2xs">
+              <div className="flex items-center gap-2 font-bold">
+                <FileText size={15} className="text-[#1D68E2]" />
+                <span>Want to see what an authentic ticket looks like?</span>
+              </div>
+              <a
+                href="/sample-eticket.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-extrabold text-[#1D68E2] hover:underline flex items-center gap-1 shrink-0"
+              >
+                <span>Air India Sample (PDF)</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
           </div>
 
         </div>
@@ -940,7 +958,7 @@ function Hero() {
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-6">
+              <div className="mt-6 space-y-2.5">
                 <a
                   href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"
@@ -950,6 +968,17 @@ function Hero() {
                   <MessageCircle size={16} />
                   <span>Order on WhatsApp ({activeService.price})</span>
                   <ArrowRight size={16} />
+                </a>
+
+                <a
+                  href="/sample-eticket.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition"
+                >
+                  <FileText size={14} className="text-[#1D68E2]" />
+                  <span>Inspect Real Air India eTicket Sample (PDF)</span>
+                  <ExternalLink size={11} />
                 </a>
               </div>
             </div>

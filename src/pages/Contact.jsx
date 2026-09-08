@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 function Contact() {
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,12 +25,15 @@ function Contact() {
     message: "",
   });
   const serviceLabels = {
-    flight: "Flight Reservation (₹399)",
-    hotel: "Hotel Booking (₹250)",
-    combo: "Flight + Hotel Combo (₹650)",
-    return: "Return / Onward Ticket (₹499)",
+    flight: "Dummy Flight Ticket (₹350)",
+    hotel: "Dummy Hotel Booking (₹250)",
+    combo: "Flight + Hotel Combo (₹500)",
+    return: "Return Ticket for Immigration (₹1,000)",
+    "cancellation-return": "Cancellation Return Ticket (₹1,500)",
+    insurance: "Travel Medical Insurance (₹400 / ₹700)",
+    otb: "Ok To Board (OTB) Clearance (₹250)",
     "date-change": "Free Date Change Request",
-    other: "General Embassy Question",
+    other: "General Embassy / Visa Question",
   };
 
   const formattedMessage =
@@ -264,12 +268,15 @@ function Contact() {
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
                     >
-                      <option value="flight">Flight Reservation (₹399)</option>
-                      <option value="hotel">Hotel Booking (₹250)</option>
-                      <option value="combo">Flight + Hotel Combo (₹650)</option>
-                      <option value="return">Return / Onward Ticket (₹499)</option>
+                      <option value="flight">Dummy Flight Ticket (₹350)</option>
+                      <option value="hotel">Dummy Hotel Booking (₹250)</option>
+                      <option value="combo">Flight + Hotel Combo (₹500)</option>
+                      <option value="return">Return Ticket for Immigration (₹1,000)</option>
+                      <option value="cancellation-return">Cancellation Return Ticket (₹1,500)</option>
+                      <option value="insurance">Travel Medical Insurance (₹400 / ₹700)</option>
+                      <option value="otb">Ok To Board (OTB) Clearance (₹250)</option>
                       <option value="date-change">Free Date Change Request</option>
-                      <option value="other">General Embassy Question</option>
+                      <option value="other">General Embassy / Visa Question</option>
                     </select>
                   </div>
                 </div>

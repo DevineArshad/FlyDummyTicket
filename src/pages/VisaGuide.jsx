@@ -73,6 +73,52 @@ const countryRequirements = [
       "Detailed travel itinerary/day-by-day plan",
     ],
   },
+  {
+    id: "australia",
+    flag: "🇦🇺",
+    title: "Australia (Visitor Subclass 600)",
+    countries: "All Australian States & Territories",
+    clause: "Department of Home Affairs Official Guidance",
+    details:
+      "Australian immigration requires proof of intent to return home after your visit. Having a tentative, verifiable flight itinerary and confirmed accommodation plan proves your intended travel dates without purchasing non-refundable air tickets.",
+    requirementList: [
+      "Round-trip flight reservation showing proposed entry & exit dates",
+      "Valid airline PNR verifiable on airline booking engine",
+      "Hotel reservation or host address covering duration of stay",
+      "Matching personal details as submitted in ImmiAccount",
+    ],
+  },
+  {
+    id: "dubai",
+    flag: "🇦🇪",
+    name: "Dubai & United Arab Emirates",
+    title: "Dubai & UAE (30/60 Days Tourist & Transit Visa)",
+    countries: "Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah",
+    clause: "GDRFA & Airline Ok To Board (OTB) Mandate",
+    details:
+      "Airlines flying to the UAE (Emirates, flydubai, Air India Express, IndiGo) require passengers to hold a confirmed return or onward flight ticket and Ok To Board clearance. Without a valid return reservation, airline counters will deny boarding.",
+    requirementList: [
+      "Confirmed onward or return ticket for airport counter check-in",
+      "Ok To Board (OTB) clearance updated in airline reservation",
+      "Hotel booking voucher for UAE immigration counter verification",
+      "Immediate delivery to WhatsApp for airport urgency",
+    ],
+  },
+  {
+    id: "student",
+    flag: "🎓",
+    title: "International Student Visas",
+    countries: "USA (F-1), UK (Student Route), Canada (Study Permit), Australia (500)",
+    clause: "Global University & Consular Student Regulations",
+    details:
+      "Consulates and visa processing centers require students to provide tentative travel timelines aligned with course commencement dates. Our flexible student reservations include free date rescheduling if your visa decision is delayed.",
+    requirementList: [
+      "One-way or round-trip flight reservation dated prior to course start",
+      "Includes valid airline PNR verifiable online",
+      "100% Free date change if visa or CAS/I-20 issuance is delayed",
+      "Hotel voucher or student housing reservation for initial arrival",
+    ],
+  },
 ];
 
 function VisaGuide() {
@@ -174,13 +220,13 @@ function VisaGuide() {
                 to="/services/flight-reservation"
                 className="flex-1 sm:flex-initial rounded-xl bg-[#1D68E2] hover:bg-[#1556BE] px-5 py-3 text-xs font-bold text-white shadow-md text-center transition-all"
               >
-                Get Flight Itinerary (₹399)
+                Get Flight Itinerary (₹350)
               </Link>
               <Link
                 to="/services/flight-hotel-package"
                 className="flex-1 sm:flex-initial rounded-xl bg-[#0D9488] hover:bg-[#0F766E] px-5 py-3 text-xs font-bold text-white shadow-md text-center transition-all"
               >
-                Get Flight + Hotel (₹650)
+                Get Flight + Hotel (₹500)
               </Link>
             </div>
           </div>

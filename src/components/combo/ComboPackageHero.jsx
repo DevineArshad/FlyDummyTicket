@@ -232,16 +232,26 @@ function ComboPackageHero() {
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Combo Total Price</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black text-slate-900">₹650</span>
-                  <span className="text-xs text-slate-500 font-medium">/ approx. $8 USD</span>
-                  <span className="line-through text-xs text-slate-400">₹850</span>
+                  <span className="text-3xl font-black text-slate-900">₹500</span>
+                  <span className="text-xs text-slate-500 font-medium">/ approx. $6 USD</span>
+                  <span className="line-through text-xs text-slate-400">₹650</span>
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">
                   ✓ Flight PNR + Hotel Voucher (Both Included)
                 </p>
               </div>
 
-              <div className="w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
+                <a
+                  href="/sample-eticket.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-xl border border-blue-200 bg-blue-50/70 hover:bg-blue-100/70 px-4 py-3.5 text-xs font-bold text-[#1D68E2] transition cursor-pointer"
+                >
+                  <FileCheck size={14} />
+                  <span>Sample PDF</span>
+                </a>
+
                 <a
                   href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"
@@ -391,7 +401,7 @@ function ComboPackageHero() {
                   </div>
 
                   <span className="text-xs font-extrabold text-white bg-blue-600 px-2.5 py-1 rounded-lg">
-                    ₹650 Package
+                    ₹500 Package
                   </span>
                 </div>
               </div>
