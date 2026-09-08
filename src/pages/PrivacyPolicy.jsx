@@ -46,7 +46,7 @@ function PrivacyPolicy() {
               <li><strong>Passenger Details:</strong> Full name, title (Mr./Ms./Mrs.), and traveler counts as specified on your passport.</li>
               <li><strong>Contact Information:</strong> Email address and WhatsApp telephone number for instant PDF itinerary delivery.</li>
               <li><strong>Travel Preferences:</strong> Departure airport, destination city, preferred travel dates, and cabin/room class.</li>
-              <li><strong>Payment Records:</strong> Transaction IDs and payment confirmation status (we do not hold or store credit card numbers).</li>
+              <li><strong>Payment Records:</strong> Transaction IDs and payment confirmation status (we do not retain or store credit card numbers).</li>
             </ul>
           </section>
 
@@ -54,7 +54,7 @@ function PrivacyPolicy() {
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">3. How We Use Your Information</h2>
             <p>We process your personal information solely for legitimate operational purposes:</p>
             <ul className="mt-2 list-disc pl-5 space-y-1">
-              <li>Reserving temporary airline and hotel booking holds in global reservation systems (GDS).</li>
+              <li>Reserving temporary verifiable airline and hotel bookings in global reservation systems (GDS).</li>
               <li>Generating official electronic itinerary receipts and delivering them via WhatsApp and Email.</li>
               <li>Processing free date modification requests and customer assistance queries.</li>
             </ul>
@@ -77,7 +77,7 @@ function PrivacyPolicy() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">6. Contact Our Privacy Officer</h2>
             <p>
-              For any questions regarding our data handling practices or GDPR inquiries, please write to us at <strong>privacy@flydummyticket.com</strong> or visit our office at A-118, Sector 63, Noida, Uttar Pradesh 201301, India.
+              For any questions regarding our data handling practices or GDPR inquiries, please write to us at <strong>privacy@flydummyticket.com</strong> or visit our office at B32, Gali No. 3, East Azad Nagar, Delhi, India.
             </p>
           </section>
         </div>

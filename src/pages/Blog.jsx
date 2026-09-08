@@ -32,7 +32,7 @@ const articles = [
     category: "Airlines & PNR",
     title: "What is an Airline PNR and How Do Embassies Verify It?",
     excerpt:
-      "Understand the global distribution system (GDS) behind Passenger Name Records (PNR) and how visa officers verify authentic seat holds directly with airlines.",
+      "Understand the global distribution system (GDS) behind Passenger Name Records (PNR) and how visa officers verify authentic seat reservations directly with airlines.",
     date: "Aug 29, 2026",
     readTime: "4 min read",
     author: "Capt. Rajesh Sharma",
@@ -194,7 +194,7 @@ function Blog() {
           <div>
             <h3 className="text-xl font-bold">Need a reservation for your visa application?</h3>
             <p className="text-xs text-slate-300 mt-1">
-              Valid flight and hotel itineraries issued with live PNR codes in 10 minutes.
+              Valid flight and hotel itineraries issued with live PNR codes in 10 to 30 minutes.
             </p>
           </div>
           <Link

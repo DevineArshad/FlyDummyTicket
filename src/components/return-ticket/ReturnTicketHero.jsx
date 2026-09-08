@@ -80,7 +80,7 @@ function ReturnTicketHero() {
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-            Airlines and immigration officers routinely deny boarding to travelers without proof of return or onward journey. Rent a verifiable flight reservation with active PNR in 10 minutes.
+            Airlines and immigration officers routinely deny boarding to travelers without proof of return or onward journey. Rent a verifiable flight reservation with active PNR in 10 to 30 minutes.
           </p>
 
           {/* Quick Badges */}
@@ -92,7 +92,7 @@ function ReturnTicketHero() {
               <ShieldCheck size={13} className="text-emerald-600" /> Verifiable on Airline Website
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-amber-50 px-2.5 py-1 text-amber-800 border border-amber-200/80">
-              <Zap size={13} className="text-amber-600" /> Rapid 10-Minute Delivery
+              <Zap size={13} className="text-amber-600" /> Rapid 10 to 30-Minute Delivery
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 px-2.5 py-1 text-blue-800 border border-blue-200/80">
               <Clock size={13} className="text-blue-600" /> Valid 48 Hours to 14 Days
@@ -395,7 +395,7 @@ function ReturnTicketHero() {
               </div>
               <h4 className="text-base font-bold text-slate-900">Genuine Active PNR</h4>
               <p className="text-xs text-slate-500 leading-relaxed mt-2">
-                We hold a real seat with the airline under your name. If the airline agent checks the PNR in their system, it verifies immediately.
+                We reserve a real seat with the airline under your name. If the airline agent checks the PNR in their system, it verifies immediately.
               </p>
             </div>
 
@@ -462,7 +462,7 @@ function ReturnTicketHero() {
             {/* PNR Code Pill */}
             <div className="mt-4 flex items-center justify-between rounded-xl bg-purple-50/80 border border-purple-100 px-4 py-3">
               <div>
-                <span className="text-[10px] font-bold uppercase text-purple-700 block">Airline PNR Hold</span>
+                <span className="text-[10px] font-bold uppercase text-purple-700 block">Airline PNR Reservation</span>
                 <span className="text-base font-black tracking-widest text-purple-950 font-mono">{pnrCode}</span>
               </div>
               <button

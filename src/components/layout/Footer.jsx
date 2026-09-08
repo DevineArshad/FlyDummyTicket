@@ -403,7 +403,7 @@ function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin size={16} className="text-slate-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-600 leading-snug">
-                  A-118, Sector 63, Noida, Uttar Pradesh 201301, India
+                  B32, Gali No. 3, East Azad Nagar, Delhi, India
                 </p>
               </div>
             </div>

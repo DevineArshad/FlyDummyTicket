@@ -79,7 +79,7 @@ export default function SampleTicketShowcase() {
                       <h3 className="text-lg font-black text-slate-900">{sampleTicket.airline}</h3>
                       <span className="inline-flex items-center gap-1 rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-extrabold text-emerald-700 border border-emerald-200">
                         <CheckCircle2 size={11} className="text-emerald-600" />
-                        Live PNR Hold
+                        Live Verified PNR
                       </span>
                     </div>
                     <p className="text-xs text-slate-500 font-semibold">{sampleTicket.alliance}</p>
@@ -160,7 +160,7 @@ export default function SampleTicketShowcase() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-                  <span>Delivered via WhatsApp & Email in 10 minutes</span>
+                  <span>Delivered via WhatsApp & Email in 10 to 30 minutes</span>
                 </div>
               </div>
 

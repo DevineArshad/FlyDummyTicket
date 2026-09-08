@@ -32,7 +32,7 @@ const scenarios = [
     image: parisImg,
     popularRoute: "DEL → CDG (Paris)",
     icon: Globe,
-    highlights: ["Schengen Visa Code Art. 14", "Checkable Live PNR Hold"],
+    highlights: ["Schengen Visa Code Art. 14", "Checkable Live Airline PNR"],
   },
   {
     id: "onward",
@@ -48,7 +48,7 @@ const scenarios = [
     image: cloudsImg,
     popularRoute: "BOM → BKK (Bangkok)",
     icon: PlaneTakeoff,
-    highlights: ["Accepted at Airport Check-in", "Immediate 10-Min Delivery"],
+    highlights: ["Accepted at Airport Check-in", "Fast 10–30 Min Delivery"],
   },
   {
     id: "us-uk",

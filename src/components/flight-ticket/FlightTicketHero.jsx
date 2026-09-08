@@ -113,7 +113,7 @@ function FlightTicketHero() {
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-            Get an authentic, verifiable flight reservation with genuine airline PNR in under 10 minutes.
+            Get an authentic, verifiable dummy flight ticket with genuine airline PNR in 10 to 30 minutes.
             Accepted by embassies, VFS global, and immigration authorities worldwide without buying costly flight tickets.
           </p>
 
@@ -123,7 +123,7 @@ function FlightTicketHero() {
               <Check size={13} className="text-emerald-600" /> 100% Embassy Accepted
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 px-2.5 py-1 text-blue-800 border border-blue-200/80">
-              <Zap size={13} className="text-[#1D68E2]" /> Delivered in 10 Minutes
+              <Zap size={13} className="text-[#1D68E2]" /> Fast Delivery: 10 to 30 Minutes
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-purple-50 px-2.5 py-1 text-purple-800 border border-purple-200/80">
               <ShieldCheck size={13} className="text-purple-600" /> Active Airline PNR Code
@@ -301,8 +301,34 @@ function FlightTicketHero() {
               </div>
             </div>
 
+            {/* Dummy Ticket Validity & Inclusions Card */}
+            <div className="mt-6 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50/80 to-indigo-50/50 p-4 text-xs">
+              <div className="flex items-center gap-2 font-bold text-blue-950 mb-2">
+                <ShieldCheck size={16} className="text-[#1D68E2]" />
+                <span>Dummy Ticket Validity & Inclusions</span>
+              </div>
+              <ul className="space-y-1.5 text-slate-700 font-medium">
+                <li className="flex items-start gap-2">
+                  <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Verifiable dummy flight ticket.</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Maximum of 2 flights.</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Validity depends on your journey route and journey date. Generally for 2-3 weeks</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Fast delivery between 10 to 30 minutes.</strong></span>
+                </li>
+              </ul>
+            </div>
+
             {/* Price & Primary CTA */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mt-6 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Price</span>
                 <div className="flex items-baseline gap-2">
@@ -310,7 +336,7 @@ function FlightTicketHero() {
                   <span className="text-xs text-slate-500 font-medium">/ approx. $4.20 USD</span>
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">
-                  ✓ Valid for 7–14 days with verified PNR
+                  ✓ Valid for 2–3 weeks with verified PNR
                 </p>
               </div>
 
@@ -515,7 +541,7 @@ function FlightTicketHero() {
               </div>
               <h4 className="text-base font-bold text-slate-900">Verifiable Airline PNR</h4>
               <p className="text-xs text-slate-500 leading-relaxed mt-2">
-                Our reservations come with authentic 6-character PNR booking codes held directly with the airline, verifiable on airline websites and embassy checking tools.
+                Our reservations come with authentic 6-character PNR booking codes issued directly with the airline, verifiable on airline websites and embassy checking tools.
               </p>
             </div>
 
@@ -582,7 +608,7 @@ function FlightTicketHero() {
             {/* PNR Code Pill */}
             <div className="mt-4 flex items-center justify-between rounded-xl bg-blue-50/80 border border-blue-100 px-4 py-3">
               <div>
-                <span className="text-[10px] font-bold uppercase text-blue-600 block">Verified PNR Hold</span>
+                <span className="text-[10px] font-bold uppercase text-blue-600 block">Verifiable Dummy Flight</span>
                 <span className="text-base font-black tracking-widest text-blue-950 font-mono">{pnrCode}</span>
               </div>
               <button

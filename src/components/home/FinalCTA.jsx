@@ -24,7 +24,7 @@ const stats = [
     iconBg: "bg-blue-50",
   },
   {
-    value: "10 min",
+    value: "10–30 min",
     label: "Average delivery",
     icon: Clock,
     iconColor: "text-emerald-600",
@@ -137,7 +137,7 @@ function FinalCTA() {
               <Zap size={13} className="text-[#1D68E2] fill-[#1D68E2]" />
               <span>
                 INSTANT DIGITAL DELIVERY{" "}
-                <strong className="text-[#1D68E2]">IN 10 MINUTES</strong>
+                <strong className="text-[#1D68E2]">IN 10 TO 30 MINUTES</strong>
               </span>
             </div>
 
@@ -267,7 +267,7 @@ function FinalCTA() {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-white leading-tight">Embassy Ready</p>
-                      <p className="text-[10px] text-blue-200">GDS Active Hold</p>
+                      <p className="text-[10px] text-blue-200">GDS Active Reservation</p>
                     </div>
                   </div>
                   <span className="rounded-md bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300">

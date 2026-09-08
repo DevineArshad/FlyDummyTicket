@@ -43,15 +43,15 @@ const faqs = [
     icon: Search,
     question: "Can I verify the 6-character PNR code directly on airline websites?",
     answer:
-      "Yes. Every flight reservation comes with a genuine 6-character airline booking reference (PNR). You can go to the official website of the operating airline (e.g., Emirates, Qatar Airways, Lufthansa, British Airways), navigate to 'Manage Booking', enter your surname and PNR, and view the active reservation hold.",
+      "Yes. Every flight reservation comes with a genuine 6-character airline booking reference (PNR). You can go to the official website of the operating airline (e.g., Emirates, Qatar Airways, Lufthansa, British Airways), navigate to 'Manage Booking', enter your surname and PNR, and view the active verifiable flight reservation.",
   },
   {
     id: 3,
     category: "validity",
     icon: Calendar,
-    question: "How long is the flight reservation valid?",
+    question: "How long is the dummy ticket flight reservation valid?",
     answer:
-      "Our standard reservations are typically valid between 48 hours and up to 14 days depending on airline automated cancellation cycles. When placing your order, you can specify your visa submission date so we schedule generation for maximum validity during your embassy review.",
+      "Dummy ticket validity depends on your journey route and journey date, generally for 2-3 weeks. Reservations support a maximum of 2 flights. When placing your order, you can specify your visa submission date so we schedule generation for maximum validity during your embassy review.",
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ const faqs = [
     icon: FileText,
     question: "Can I use this ticket as proof of onward travel at airport check-in?",
     answer:
-      "Yes. If you are flying on a one-way ticket to countries that require proof of onward travel (such as Thailand, Indonesia/Bali, UK, UAE, or Latin America), our reservations hold an active PNR that airline check-in agents can verify in real-time to issue your boarding pass.",
+      "Yes. If you are flying on a one-way ticket to countries that require proof of onward travel (such as Thailand, Indonesia/Bali, UK, UAE, or Latin America), our reservations provide an active verifiable PNR that airline check-in agents can verify in real-time to issue your boarding pass.",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ const faqs = [
     icon: Zap,
     question: "How quickly do I receive the document after ordering?",
     answer:
-      "Our automated dispatch system generates and sends your official IATA-compliant PDF itinerary within 10 to 15 minutes of payment directly to your WhatsApp and Email. You can print it out immediately in high resolution.",
+      "Our automated dispatch system generates and sends your official IATA-compliant PDF itinerary between 10 to 30 minutes of payment directly to your WhatsApp and Email. You can print it out immediately in high resolution.",
   },
   {
     id: 7,

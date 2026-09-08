@@ -30,7 +30,7 @@ const packages = [
     id: "flight",
     name: "Dummy Flight Ticket",
     category: "visa",
-    description: "Embassy-approved verifiable flight itinerary with active airline PNR hold.",
+    description: "Embassy-approved verifiable dummy flight ticket with active airline PNR.",
     price: "350",
     unit: "/ person",
     href: "/services/flight-reservation",
@@ -43,10 +43,12 @@ const packages = [
     buttonClass:
       "bg-[#EAF2FE] text-[#1D68E2] hover:bg-[#DBEAFE] border border-blue-100 hover:border-blue-200",
     features: [
-      "Verifiable live airline PNR hold",
+      "Verifiable dummy flight ticket",
+      "Maximum of 2 flights",
+      "Validity depends on your journey route and journey date. Generally for 2-3 weeks",
+      "Fast delivery between 10 to 30 minutes",
       "IATA standard PDF format with barcode",
       "Accepted at Schengen, US, UK, Canada & UAE embassies",
-      "Delivered to WhatsApp & Email in 10 mins",
       "100% Free date change guarantee",
     ],
   },
@@ -70,7 +72,7 @@ const packages = [
       "Includes hotel address, contact & confirmation codes",
       "Synchronized check-in & check-out dates",
       "Accepted for all global visa applications",
-      "Delivered straight to WhatsApp in 10 mins",
+      "Delivered straight to WhatsApp in 10 to 30 mins",
     ],
   },
   {
@@ -117,7 +119,7 @@ const packages = [
       "Real-time verifiable onward reservation",
       "Prevents boarding denial on one-way flights",
       "For Thailand, Bali, UK, UAE & worldwide travel",
-      "Immediate 10-minute emergency delivery",
+      "Immediate 10 to 30-minute delivery",
     ],
   },
   {
@@ -139,7 +141,7 @@ const packages = [
     buttonClass:
       "bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200",
     features: [
-      "Genuine cancellable airline booking hold",
+      "Genuine cancellable airline booking reservation",
       "Checkable directly on airline website portal",
       "Automated cancellation handled with zero penalty",
       "Recommended for strict border jurisdictions",
@@ -213,7 +215,7 @@ const trustHighlights = [
   },
   {
     icon: FileText,
-    title: "Rapid 10-Minute Delivery",
+    title: "Rapid 10 to 30 Minute Delivery",
     desc: "Instant high-resolution PDF generation",
   },
 ];

@@ -96,7 +96,7 @@ const countryRequirements = [
     countries: "Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah",
     clause: "GDRFA & Airline Ok To Board (OTB) Mandate",
     details:
-      "Airlines flying to the UAE (Emirates, flydubai, Air India Express, IndiGo) require passengers to hold a confirmed return or onward flight ticket and Ok To Board clearance. Without a valid return reservation, airline counters will deny boarding.",
+      "Airlines flying to the UAE (Emirates, flydubai, Air India Express, IndiGo) require passengers to have a confirmed return or onward flight ticket and Ok To Board clearance. Without a valid return reservation, airline counters will deny boarding.",
     requirementList: [
       "Confirmed onward or return ticket for airport counter check-in",
       "Ok To Board (OTB) clearance updated in airline reservation",

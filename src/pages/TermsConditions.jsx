@@ -42,7 +42,7 @@ function TermsConditions() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">2. Scope and Nature of Services</h2>
             <p>
-              FlyDummyTicket acts as an authorized travel booking documentation agency. Our services provide temporary, confirmed reservation holds with active Passenger Name Records (PNRs) held directly with airlines and verified hotel vouchers intended for visa applications, travel planning, and proof of onward journey.
+              FlyDummyTicket acts as an authorized travel booking documentation agency. Our services provide temporary, confirmed verifiable flight reservations with active Passenger Name Records (PNRs) issued directly with airlines and verified hotel vouchers intended for visa applications, travel planning, and proof of onward journey.
             </p>
             <div className="mt-3 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs font-semibold">
               Notice: A dummy ticket reservation is NOT a fully paid airline passenger ticket and cannot be utilized to board an actual aircraft without purchasing the commercial airline ticket fare.
@@ -57,9 +57,9 @@ function TermsConditions() {
           </section>
 
           <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">4. PNR Validity & Airline Hold Timelines</h2>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">4. PNR Validity & Reservation Timelines</h2>
             <p>
-              Airline reservation holds typically remain active in the airline system between 48 hours and up to 14 days, subject to airline automated cancellation cycles. We offer unlimited free date adjustments if your visa appointment date changes within 30 days of purchase.
+              Verifiable dummy flight ticket validity depends on your journey route and journey date, generally remaining active for 2–3 weeks (with a maximum of 2 flights). We offer unlimited free date adjustments if your visa appointment date changes within 30 days of purchase.
             </p>
           </section>
 

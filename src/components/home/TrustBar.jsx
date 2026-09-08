@@ -61,7 +61,7 @@ const dummyTicketPoints = [
     desc: "If your travel plans change",
   },
   {
-    title: "Get your itinerary in 10–15 minutes",
+    title: "Get your itinerary in 10 to 30 minutes",
     desc: "No waiting, no stress",
   },
 ];

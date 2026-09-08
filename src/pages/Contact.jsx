@@ -157,8 +157,8 @@ function Contact() {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase text-slate-400">Office Location</span>
-                  <p className="font-semibold text-slate-800">A-118, Sector 63, Noida</p>
-                  <span className="text-[11px] text-slate-400">Uttar Pradesh 201301, India</span>
+                  <p className="font-semibold text-slate-800">B32, Gali No. 3, East Azad Nagar</p>
+                  <span className="text-[11px] text-slate-400">Delhi, India</span>
                 </div>
               </div>
             </div>

@@ -64,7 +64,7 @@ const visaCategories = [
       "Detailed flight itinerary showing flight numbers & carrier",
       "Planned return journey timeline",
       "Hotel reservation or host invitation alignment",
-      "Valid airline PNR hold for background checks",
+      "Valid airline reservation for background checks",
     ],
     recommendedDoc: "Flight Reservation",
     recommendedPrice: "₹350",
@@ -100,7 +100,7 @@ const visaCategories = [
       "Confirmed onward or return ticket for airport clearance",
       "Ok To Board (OTB) clearance updated in airline PNR",
       "Hotel booking voucher for immigration counter checks",
-      "Rapid 10-minute emergency delivery available",
+      "Rapid 10 to 30-minute delivery available",
     ],
     recommendedDoc: "Return Ticket + OTB Clearance",
     recommendedPrice: "₹350 + ₹250 OTB",
@@ -239,7 +239,7 @@ export default function MajorVisaTypes() {
                 </div>
 
                 <p className="mt-2 text-xs text-slate-500 leading-relaxed">
-                  Generated with authentic airline booking codes, downloadable IATA format PDF, delivered straight to your WhatsApp in 10 minutes.
+                  Generated with authentic airline booking codes, downloadable IATA format PDF, delivered straight to your WhatsApp in 10 to 30 minutes.
                 </p>
 
                 <div className="mt-6 space-y-3">

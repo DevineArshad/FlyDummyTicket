@@ -36,7 +36,7 @@ function HowItWorksPage() {
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-            A dummy flight ticket is a genuine flight reservation with an active Passenger Name Record (PNR) held directly in airline Global Distribution Systems (GDS). Learn how we issue and verify them in 3 simple steps.
+            A dummy flight ticket is a genuine flight reservation with an active Passenger Name Record (PNR) issued directly in airline Global Distribution Systems (GDS). Learn how we issue and verify them in 3 simple steps.
           </p>
         </div>
       </div>
@@ -93,7 +93,7 @@ function HowItWorksPage() {
             <div>
               <h3 className="text-xl font-bold">Ready to secure your visa itinerary?</h3>
               <p className="text-xs text-slate-300 mt-1">
-                Delivered straight to your WhatsApp and Email in under 10 minutes.
+                Delivered straight to your WhatsApp and Email between 10 to 30 minutes.
               </p>
             </div>
             <div className="mt-4 sm:mt-0 flex gap-3 justify-center">

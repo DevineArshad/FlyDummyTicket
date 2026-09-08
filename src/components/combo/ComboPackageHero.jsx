@@ -397,7 +397,7 @@ function ComboPackageHero() {
                     <p className="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1">
                       <ShieldCheck size={12} /> EMBASSY RECOMMENDED COMBO
                     </p>
-                    <p className="text-[9px] text-slate-400 mt-0.5">Dual PDF delivery within 10 minutes</p>
+                    <p className="text-[9px] text-slate-400 mt-0.5">Dual PDF delivery within 10 to 30 minutes</p>
                   </div>
 
                   <span className="text-xs font-extrabold text-white bg-blue-600 px-2.5 py-1 rounded-lg">
