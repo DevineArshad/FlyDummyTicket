@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-handwriting: "Caveat", cursive;
+
+  /* Brand Colors */
+  --color-brand-navy: #14213D;
+  --color-brand-blue: #2563EB;
+  --color-brand-blue-dark: #1D4ED8;
+  --color-brand-blue-light: #EFF6FF;
+
+  /* Accent Colors */
+  --color-success: #16A34A;
+  --color-success-light: #F0FDF4;
+  --color-gold: #F59E0B;
+
+  /* Surfaces */
+  --color-page: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F1F5F9;
+
+  /* Text */
+  --color-heading: #0F172A;
+  --color-body: #64748B;
+  --color-muted: #94A3B8;
+
+  /* Borders */
+  --color-border: #E2E8F0;
+  --color-border-dark: #CBD5E1;
+
+  /* Radius */
+  --radius-button: 0.75rem;
+  --radius-input: 0.75rem;
+  --radius-card: 1.25rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 12px 32px rgba(15, 23, 42, 0.10);
+  --shadow-floating: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #F8FAFC;
+    color: #0F172A;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+.font-handwriting {
+  font-family: "Caveat", cursive, sans-serif !important;
+}
