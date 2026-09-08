@@ -44,7 +44,7 @@ function DateChange() {
     (form.notes ? `• Reason / Notes: ${form.notes}\n` : "") +
     `Please re-issue my updated itinerary PDF free of charge.`;
 
-  const whatsappRescheduleUrl = `https://wa.me/919311323356?text=${encodeURIComponent(formattedReschedule)}`;
+  const whatsappRescheduleUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedReschedule)}`;
   const mailToRescheduleUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
     `Free Date Reschedule Request - Ref: ${form.bookingRef || form.fullName}`
   )}&body=${encodeURIComponent(formattedReschedule)}`;
@@ -278,7 +278,7 @@ function DateChange() {
               </p>
 
               <a
-                href={`https://wa.me/919311323356?text=${whatsappReschedule}`}
+                href={`https://wa.me/919560099481?text=${whatsappReschedule}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-5 py-3 text-xs font-bold text-white shadow-md transition-all cursor-pointer"

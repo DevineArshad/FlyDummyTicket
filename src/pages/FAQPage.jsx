@@ -56,7 +56,7 @@ function FAQPage() {
           </div>
 
           <a
-            href="https://wa.me/919311323356?text=Hi%20FlyDummyTicket%20Team%2C%20I%20have%20a%20question%20regarding%20my%20visa%20itinerary"
+            href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20have%20a%20question%20regarding%20my%20visa%20itinerary"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all shrink-0 cursor-pointer"

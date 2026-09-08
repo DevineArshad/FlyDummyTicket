@@ -14,9 +14,9 @@ import {
   Globe,
   Info,
   MapPin,
+  MessageCircle,
   Plane,
   PlaneTakeoff,
-  Printer,
   RotateCcw,
   Send,
   ShieldCheck,
@@ -940,22 +940,14 @@ function Hero() {
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={() => window.print()}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-3 text-sm font-bold text-slate-800 hover:bg-slate-50 cursor-pointer"
-                >
-                  <Printer size={16} />
-                  <span>Print / Save PDF</span>
-                </button>
-
+              <div className="mt-6">
                 <a
-                  href={`https://wa.me/919311323356?text=${whatsappMessage}`}
+                  href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#2563eb] py-3 text-sm font-bold text-white shadow-md shadow-blue-500/25 hover:bg-blue-700 cursor-pointer transition"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2563eb] py-3.5 text-sm font-bold text-white shadow-md shadow-blue-500/25 hover:bg-blue-700 cursor-pointer transition"
                 >
+                  <MessageCircle size={16} />
                   <span>Order on WhatsApp ({activeService.price})</span>
                   <ArrowRight size={16} />
                 </a>

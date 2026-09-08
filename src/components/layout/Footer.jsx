@@ -196,7 +196,7 @@ function Footer() {
             {/* Right WhatsApp Button */}
             <div className="flex flex-col items-start lg:items-end">
               <a
-                href="https://wa.me/919311323356?text=Hi%20FlyDummyTicket%20team,%20I%20have%20a%20question%20about%20travel%20reservations."
+                href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20team,%20I%20have%20a%20question%20about%20travel%20reservations."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#0D8746] hover:bg-[#0A7039] px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all cursor-pointer whitespace-nowrap"
@@ -347,12 +347,12 @@ function Footer() {
                 <Phone size={16} className="text-slate-400 shrink-0 mt-0.5" />
                 <div>
                   <a
-                    href="https://wa.me/919311323356"
+                    href="https://wa.me/919560099481"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold text-slate-900 hover:text-[#1D68E2] transition-colors"
                   >
-                    +91 93113 23356
+                    +91 95600 99481
                   </a>
                   <p className="text-[11px] text-slate-400">Chat on WhatsApp (24/7)</p>
                 </div>

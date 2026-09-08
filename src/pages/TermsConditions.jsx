@@ -73,7 +73,7 @@ function TermsConditions() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">6. Customer Support & Inquiries</h2>
             <p>
-              If you have any questions regarding these terms, please contact our legal desk at <strong>support@flydummyticket.com</strong> or via 24/7 WhatsApp at <strong>+91 93113 23356</strong>.
+              If you have any questions regarding these terms, please contact our legal desk at <strong>support@flydummyticket.com</strong> or via 24/7 WhatsApp at <strong>+91 95600 99481</strong>.
             </p>
           </section>
         </div>

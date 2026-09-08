@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "../common/ScrollToTop";
+import WhatsAppFAB from "../common/WhatsAppFAB";
 
 function Layout() {
   return (
@@ -12,6 +13,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFAB />
     </div>
   );
 }

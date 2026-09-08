@@ -77,7 +77,7 @@ function RefundPolicy() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">6. How to Request a Refund</h2>
             <p>
-              To initiate a refund, please send your booking reference and reason for cancellation to <strong>refunds@flydummyticket.com</strong> or message our support team on WhatsApp at <strong>+91 93113 23356</strong>.
+              To initiate a refund, please send your booking reference and reason for cancellation to <strong>refunds@flydummyticket.com</strong> or message our support team on WhatsApp at <strong>+91 95600 99481</strong>.
             </p>
           </section>
         </div>

@@ -74,7 +74,7 @@ function Header() {
           </p>
 
           <a
-            href="https://wa.me/919311323356?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20assistance"
+            href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20assistance"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-[11px] font-semibold text-white transition-opacity hover:opacity-80 sm:text-xs"
@@ -334,7 +334,7 @@ function Header() {
               ))}
 
               <a
-                href="https://wa.me/919311323356?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20help"
+                href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20help"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}

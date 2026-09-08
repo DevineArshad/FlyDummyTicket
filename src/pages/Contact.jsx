@@ -40,7 +40,7 @@ function Contact() {
     `• Service Interested In: ${serviceLabels[formData.service] || formData.service}\n` +
     `• Message: ${formData.message}`;
 
-  const inquiryWhatsAppUrl = `https://wa.me/919311323356?text=${encodeURIComponent(formattedMessage)}`;
+  const inquiryWhatsAppUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedMessage)}`;
   const inquiryMailToUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
     `Inquiry from ${formData.name} - ${serviceLabels[formData.service] || formData.service}`
   )}&body=${encodeURIComponent(formattedMessage)}`;
@@ -105,7 +105,7 @@ function Contact() {
               </p>
 
               <a
-                href={`https://wa.me/919311323356?text=${whatsappDirect}`}
+                href={`https://wa.me/919560099481?text=${whatsappDirect}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-extrabold text-[#0A7039] shadow-md hover:bg-emerald-50 transition-colors"
@@ -115,7 +115,7 @@ function Contact() {
               </a>
 
               <p className="mt-2 text-center text-[11px] text-emerald-200">
-                +91 93113 23356 • Available 24/7
+                +91 95600 99481 • Available 24/7
               </p>
             </div>
 
@@ -142,7 +142,7 @@ function Contact() {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase text-slate-400">Direct Helpline</span>
-                  <p className="font-semibold text-slate-800">+91 93113 23356</p>
+                  <p className="font-semibold text-slate-800">+91 95600 99481</p>
                   <span className="text-[11px] text-slate-400">Mon - Sun, 9:00 AM - 9:00 PM (IST)</span>
                 </div>
               </div>

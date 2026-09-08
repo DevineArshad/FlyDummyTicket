@@ -13,7 +13,6 @@ import {
   MessageCircle,
   Plane,
   PlaneTakeoff,
-  Printer,
   RotateCcw,
   ShieldCheck,
   Sparkles,
@@ -215,26 +214,17 @@ function ReturnTicketHero() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
+              <div className="w-full sm:w-auto">
                 <a
-                  href={`https://wa.me/919311323356?text=${whatsappMessage}`}
+                  href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-6 py-3 text-sm font-bold text-white shadow-md transition-all cursor-pointer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-7 py-3.5 text-sm font-bold text-white shadow-md transition-all cursor-pointer"
                 >
                   <MessageCircle size={16} />
                   <span>Get Return Ticket</span>
                   <ArrowRight size={15} />
                 </a>
-
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] px-6 py-3 text-sm font-bold text-white shadow-md transition-all cursor-pointer"
-                >
-                  <Zap size={16} />
-                  <span>Instant Order</span>
-                </button>
               </div>
             </div>
           </div>
@@ -476,22 +466,13 @@ function ReturnTicketHero() {
             </div>
 
             {/* Actions */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <button
-                type="button"
-                onClick={() => window.print()}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 shadow-xs cursor-pointer"
-              >
-                <Printer size={15} />
-                <span>Print / Save PDF</span>
-              </button>
-
+            <div className="mt-6">
               <a
-                href={`https://wa.me/919311323356?text=${whatsappMessage}`}
+                href={`https://wa.me/919560099481?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsModalOpen(false)}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] py-3 text-xs font-bold text-white shadow-md cursor-pointer transition"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] py-3 text-xs font-bold text-white shadow-md cursor-pointer transition"
               >
                 <MessageCircle size={15} />
                 <span>Send to WhatsApp</span>
