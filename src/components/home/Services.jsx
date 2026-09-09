@@ -260,7 +260,7 @@ function Services() {
   };
 
   return (
-    <section id="pricing" className="scroll-mt-20 bg-[#F8FAFC] py-14 sm:py-20 border-b border-slate-200/80">
+    <section id="pricing" className="scroll-mt-20 overflow-hidden bg-[#F8FAFC] py-14 sm:py-20 border-b border-slate-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* SECTION TITLE */}
