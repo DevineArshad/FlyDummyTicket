@@ -1,10 +1,9 @@
 import Hero from "../components/home/Hero";
 import TrustBar from "../components/home/TrustBar";
-import SampleTicketShowcase from "../components/home/SampleTicketShowcase";
+import AboutDummyTicket from "../components/home/AboutDummyTicket";
 import Services from "../components/home/Services";
 import MajorVisaTypes from "../components/home/MajorVisaTypes";
-import HowItWorks from "../components/home/HowItWorks";
-import UseCases from "../components/home/UseCases";
+import QuickContactSection from "../components/home/QuickContactSection";
 import FAQ from "../components/home/FAQ";
 import FinalCTA from "../components/home/FinalCTA";
 
@@ -13,11 +12,10 @@ function Home() {
     <>
       <Hero />
       <TrustBar />
-      <SampleTicketShowcase />
+      <AboutDummyTicket />
       <Services />
       <MajorVisaTypes />
-      <HowItWorks />
-      <UseCases />
+      <QuickContactSection />
       <FAQ />
       <FinalCTA />
     </>

@@ -3,15 +3,15 @@ import { CheckCircle2, ChevronRight, RotateCcw, ShieldCheck } from "lucide-react
 
 function RefundPolicy() {
   return (
-    <div className="bg-gradient-to-b from-[#F0F5FD] via-white to-[#F8FAFD] py-10 sm:py-14 lg:py-18">
-      <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-orange-50/40 via-white to-slate-50 py-10 sm:py-14 lg:py-18">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#1D68E2]">
+          <Link to="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
-          <span className="font-bold text-[#1D68E2]">Refund Policy</span>
+          <span className="font-bold text-[#E6582A]">Refund Policy</span>
         </nav>
 
         {/* Header */}
@@ -53,7 +53,7 @@ function RefundPolicy() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">3. Free Modifications in Lieu of Cancellation</h2>
             <p>
-              If your travel plans change or your visa appointment is rescheduled, you do not need to cancel and re-order. We provide <strong>100% free date changes and name corrections</strong> within 30 days of purchase through our <Link to="/services/date-change" className="text-[#1D68E2] font-semibold underline">Free Date Change Service</Link>.
+              If your travel plans change or your visa appointment is rescheduled, you do not need to cancel and re-order. We provide <strong>100% free date changes and name corrections</strong> within 30 days of purchase through our <Link to="/services/date-change" className="text-[#E6582A] font-semibold underline">Free Date Change Service</Link>.
             </p>
           </section>
 

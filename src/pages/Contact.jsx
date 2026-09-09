@@ -24,15 +24,14 @@ function Contact() {
     service: "flight",
     message: "",
   });
+
   const serviceLabels = {
-    flight: "Dummy Flight Ticket (₹350)",
-    hotel: "Dummy Hotel Booking (₹250)",
-    combo: "Flight + Hotel Combo (₹500)",
-    return: "Return Ticket for Immigration (₹1,000)",
-    "cancellation-return": "Cancellation Return Ticket (₹1,500)",
-    insurance: "Travel Medical Insurance (₹400 / ₹700)",
-    otb: "Ok To Board (OTB) Clearance (₹250)",
-    "date-change": "Free Date Change Request",
+    flight: "Dummy Flight Ticket (₹299)",
+    hotel: "Dummy Hotel Booking (₹249)",
+    combo: "Flight + Hotel Combo (₹499)",
+    insurance: "Travel Medical Insurance (₹699)",
+    return: "Cancellation Return Ticket (₹1,499)",
+    "date-change": "Free Date Change Request (FREE)",
     other: "General Embassy / Visa Question",
   };
 
@@ -41,7 +40,7 @@ function Contact() {
     `• Name: ${formData.name}\n` +
     `• Email: ${formData.email}\n` +
     `• WhatsApp / Phone: ${formData.phone || "Not provided"}\n` +
-    `• Service Interested In: ${serviceLabels[formData.service] || formData.service}\n` +
+    `• Service: ${serviceLabels[formData.service] || formData.service}\n` +
     `• Message: ${formData.message}`;
 
   const inquiryWhatsAppUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedMessage)}`;
@@ -52,7 +51,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    // Open WhatsApp in a new tab
     window.open(inquiryWhatsAppUrl, "_blank");
   };
 
@@ -61,26 +59,26 @@ function Contact() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-[#F0F5FD] via-[#F8FAFD] to-white py-10 sm:py-14 lg:py-18">
-      <div className="mx-auto max-w-[1360px] px-5 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-orange-50/40 via-white to-slate-50 py-10 sm:py-14 lg:py-18">
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#1D68E2]">
+          <Link to="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
-          <span className="font-bold text-[#1D68E2]">Contact & Support</span>
+          <span className="font-bold text-[#E6582A]">Contact & Support</span>
         </nav>
 
         {/* Page Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/90 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#1D68E2] shadow-xs backdrop-blur-sm">
-            <Headphones size={13} className="text-[#1D68E2]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#E6582A] shadow-xs">
+            <Headphones size={13} className="text-[#E6582A]" />
             <span>24/7 CUSTOMER SUPPORT HUB</span>
           </div>
 
           <h1 className="mt-3.5 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-[44px] lg:leading-[1.15]">
-            We’re Here to Help With <span className="text-[#1D68E2]">Your Travel Plans</span>
+            We’re Here to Help With <span className="text-[#E6582A]">Your Travel Plans</span>
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
@@ -93,9 +91,9 @@ function Contact() {
           {/* LEFT: CONTACT DETAILS & WHATSAPP CARD (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             {/* Direct WhatsApp Callout */}
-            <div className="rounded-3xl border-2 border-emerald-500 bg-gradient-to-br from-emerald-600 to-[#0A7039] p-6 text-white shadow-xl">
+            <div className="rounded-3xl border-2 border-emerald-500 bg-gradient-to-br from-emerald-600 to-[#0A7039] p-5 sm:p-6 text-white shadow-xl">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md shrink-0">
                   <MessageCircle size={26} className="text-white" />
                 </div>
                 <div>
@@ -124,35 +122,35 @@ function Contact() {
             </div>
 
             {/* Direct Information Details */}
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs space-y-4">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs space-y-4">
               <h3 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">
                 Contact Information
               </h3>
 
               <div className="flex items-start gap-3.5 text-xs sm:text-sm text-slate-600">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1D68E2]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E6582A]">
                   <Mail size={16} />
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase text-slate-400">Email Support</span>
-                  <p className="font-semibold text-slate-800">support@flydummyticket.com</p>
+                  <p className="font-semibold text-slate-800 break-all">support@flydummyticket.com</p>
                   <span className="text-[11px] text-slate-400">Replies within 1 hour</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5 text-xs sm:text-sm text-slate-600">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1D68E2]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E6582A]">
                   <Phone size={16} />
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase text-slate-400">Direct Helpline</span>
                   <p className="font-semibold text-slate-800">+91 95600 99481</p>
-                  <span className="text-[11px] text-slate-400">Mon - Sun, 9:00 AM - 9:00 PM (IST)</span>
+                  <span className="text-[11px] text-slate-400">Mon - Sun, 24/7 Global Dispatch</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5 text-xs sm:text-sm text-slate-600">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1D68E2]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E6582A]">
                   <MapPin size={16} />
                 </div>
                 <div>
@@ -165,7 +163,7 @@ function Contact() {
           </div>
 
           {/* RIGHT: CONTACT FORM (7 cols) */}
-          <div className="lg:col-span-7 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)]">
+          <div className="lg:col-span-7 rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-8 shadow-[0_8px_30px_rgba(15,23,42,0.06)]">
             <h2 className="text-lg font-bold text-slate-900">Send an Inquiry</h2>
             <p className="text-xs text-slate-500">Fill out this quick form and our team will get back to you promptly</p>
 
@@ -208,7 +206,7 @@ function Contact() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-5 text-xs font-bold text-[#1D68E2] hover:underline cursor-pointer"
+                  className="mt-5 text-xs font-bold text-[#E6582A] hover:underline cursor-pointer"
                 >
                   ← Edit or send another message
                 </button>
@@ -226,7 +224,7 @@ function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Kumar"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
 
@@ -240,7 +238,7 @@ function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. alex@example.com"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
                 </div>
@@ -255,7 +253,7 @@ function Contact() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
 
@@ -266,16 +264,14 @@ function Contact() {
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100 cursor-pointer"
                     >
-                      <option value="flight">Dummy Flight Ticket (₹350)</option>
-                      <option value="hotel">Dummy Hotel Booking (₹250)</option>
-                      <option value="combo">Flight + Hotel Combo (₹500)</option>
-                      <option value="return">Return Ticket for Immigration (₹1,000)</option>
-                      <option value="cancellation-return">Cancellation Return Ticket (₹1,500)</option>
-                      <option value="insurance">Travel Medical Insurance (₹400 / ₹700)</option>
-                      <option value="otb">Ok To Board (OTB) Clearance (₹250)</option>
-                      <option value="date-change">Free Date Change Request</option>
+                      <option value="flight">Dummy Flight Ticket (₹299)</option>
+                      <option value="hotel">Dummy Hotel Booking (₹249)</option>
+                      <option value="combo">Flight + Hotel Combo (₹499)</option>
+                      <option value="insurance">Travel Medical Insurance (₹699)</option>
+                      <option value="return">Cancellation Return Ticket (₹1,499)</option>
+                      <option value="date-change">Free Date Change Request (FREE)</option>
                       <option value="other">General Embassy / Visa Question</option>
                     </select>
                   </div>
@@ -291,13 +287,13 @@ function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about your visa type, travel dates, and any specific airline/hotel preferences..."
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1D68E2] hover:bg-[#1556BE] px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-[#E6582A]/25 transition-all cursor-pointer"
                 >
                   <Send size={16} />
                   <span>Submit Inquiry</span>

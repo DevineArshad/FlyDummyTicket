@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
+import PricingPage from "./pages/PricingPage";
 import DummyFlightTicket from "./pages/DummyFlightTicket";
 import HotelBooking from "./pages/HotelBooking";
 import ComboPackage from "./pages/ComboPackage";
 import ReturnTicket from "./pages/ReturnTicket";
+import TravelInsurance from "./pages/TravelInsurance";
 import DateChange from "./pages/DateChange";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import VisaGuide from "./pages/VisaGuide";
@@ -22,6 +24,7 @@ function App() {
         <Route element={<Layout />}>
           {/* Main Pages */}
           <Route path="/" element={<Home />} />
+          <Route path="/pricing" element={<PricingPage />} />
           <Route
             path="/services/flight-reservation"
             element={<DummyFlightTicket />}
@@ -33,6 +36,10 @@ function App() {
           <Route
             path="/services/flight-hotel-package"
             element={<ComboPackage />}
+          />
+          <Route
+            path="/services/travel-insurance"
+            element={<TravelInsurance />}
           />
           <Route
             path="/services/return-ticket"

@@ -6,16 +6,13 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock,
-  HelpCircle,
   MessageCircle,
   RotateCcw,
-  Send,
   ShieldCheck,
-  User,
-  Zap,
 } from "lucide-react";
 
 function DateChange() {
+  const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     bookingRef: "",
     fullName: "",
@@ -25,28 +22,20 @@ function DateChange() {
     newRetDate: "",
     notes: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-
-  const serviceTypeLabels = {
-    flight: "Flight Reservation Only",
-    hotel: "Hotel Booking Only",
-    combo: "Both Flight & Hotel (Combo)",
-  };
 
   const formattedReschedule =
-    `Hi FlyDummyTicket Team, I need to reschedule my travel dates:\n` +
-    `• Booking Ref / PNR: ${form.bookingRef || "N/A"}\n` +
+    `Hi FlyDummyTicket Team, I need to request a FREE date rescheduling:\n` +
+    `• Booking Reference / PNR: ${form.bookingRef}\n` +
     `• Passenger Name: ${form.fullName}\n` +
-    `• Contact (WhatsApp/Email): ${form.contact}\n` +
-    `• Document Type: ${serviceTypeLabels[form.serviceType] || form.serviceType}\n` +
-    `• New Departure / Check-In: ${form.newDepDate}\n` +
-    (form.newRetDate ? `• New Return / Check-Out: ${form.newRetDate}\n` : "") +
-    (form.notes ? `• Reason / Notes: ${form.notes}\n` : "") +
-    `Please re-issue my updated itinerary PDF free of charge.`;
+    `• Contact Info: ${form.contact}\n` +
+    `• Service: ${form.serviceType.toUpperCase()}\n` +
+    `• New Departure / Check-in: ${form.newDepDate}\n` +
+    `• New Return / Check-out: ${form.newRetDate || "N/A"}\n` +
+    `• Reason / Notes: ${form.notes || "Embassy date shifted"}`;
 
   const whatsappRescheduleUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedReschedule)}`;
-  const mailToRescheduleUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
-    `Free Date Reschedule Request - Ref: ${form.bookingRef || form.fullName}`
+  const emailRescheduleUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
+    `Free Date Change Request - ${form.bookingRef} - ${form.fullName}`
   )}&body=${encodeURIComponent(formattedReschedule)}`;
 
   const handleSubmit = (e) => {
@@ -56,28 +45,28 @@ function DateChange() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#F0F5FD] via-white to-[#F8FAFD] py-10 sm:py-14 lg:py-18">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-orange-50/40 via-white to-slate-50 py-10 sm:py-14 lg:py-18">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#1D68E2]">
+          <Link to="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
           <span className="text-slate-500">Services</span>
           <ChevronRight size={13} className="text-slate-400" />
-          <span className="font-bold text-[#1D68E2]">Free Date Change</span>
+          <span className="font-bold text-[#E6582A]">Free Date Change</span>
         </nav>
 
         {/* Page Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/90 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#1D68E2] shadow-xs">
-            <RotateCcw size={13} className="text-[#1D68E2]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#E6582A] shadow-xs">
+            <RotateCcw size={13} className="text-[#E6582A]" />
             <span>NO RESCHEDULING FEES</span>
           </div>
 
           <h1 className="mt-3.5 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-[44px] lg:leading-[1.15]">
-            Free Itinerary <span className="text-[#1D68E2]">Date Rescheduling</span>
+            Free Itinerary <span className="text-[#E6582A]">Date Rescheduling</span>
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
@@ -89,8 +78,8 @@ function DateChange() {
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-2.5 py-1 text-emerald-800 border border-emerald-200/80">
               <CheckCircle2 size={13} className="text-emerald-600" /> 100% Free of Charge
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 px-2.5 py-1 text-blue-800 border border-blue-200/80">
-              <Clock size={13} className="text-blue-600" /> Re-issued Within 2 Hours
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-orange-50 px-2.5 py-1 text-orange-800 border border-orange-200/80">
+              <Clock size={13} className="text-[#E6582A]" /> Re-issued Within 2 Hours
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-lg bg-purple-50 px-2.5 py-1 text-purple-800 border border-purple-200/80">
               <ShieldCheck size={13} className="text-purple-600" /> Fresh Active Airline PNR
@@ -101,28 +90,21 @@ function DateChange() {
         {/* Form Container */}
         <div className="mt-10 grid gap-8 lg:grid-cols-12 items-start">
           {/* Form */}
-          <div className="lg:col-span-8 rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm">
+          <div className="lg:col-span-8 rounded-3xl border border-slate-200 bg-white p-5 sm:p-10 shadow-sm">
             <h2 className="text-xl font-bold text-slate-900">Rescheduling Request Form</h2>
             <p className="text-xs text-slate-500 mt-1">
               Enter your booking reference and desired new travel dates below.
             </p>
 
             {submitted ? (
-              <div className="mt-8 rounded-2xl bg-emerald-50/90 border border-emerald-200 p-6 sm:p-8 text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4 shadow-xs">
+              <div className="mt-6 rounded-2xl bg-emerald-50/90 border border-emerald-200 p-6 sm:p-8 text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-3 shadow-xs">
                   <CheckCircle2 size={32} />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">Reschedule Request Prepared!</h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-md mx-auto">
-                  We have prepared and opened your date change request for booking reference <strong>{form.bookingRef}</strong>. Our ticketing desk will re-issue your updated PDF at zero extra charge.
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
+                  Your rescheduling request for booking <strong>{form.bookingRef}</strong> has been prepared for dispatch to our 24/7 priority ticketing desk.
                 </p>
-
-                <div className="mt-4 rounded-xl border border-emerald-200/80 bg-white p-4 text-left text-xs text-slate-700 max-w-md mx-auto space-y-1.5 shadow-2xs">
-                  <p><span className="font-bold text-slate-400 uppercase text-[10px]">Booking Ref:</span> {form.bookingRef}</p>
-                  <p><span className="font-bold text-slate-400 uppercase text-[10px]">Passenger:</span> {form.fullName}</p>
-                  <p><span className="font-bold text-slate-400 uppercase text-[10px]">New Departure:</span> {form.newDepDate}</p>
-                  {form.newRetDate && <p><span className="font-bold text-slate-400 uppercase text-[10px]">New Return:</span> {form.newRetDate}</p>}
-                </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
                   <a
@@ -136,7 +118,7 @@ function DateChange() {
                   </a>
 
                   <a
-                    href={mailToRescheduleUrl}
+                    href={emailRescheduleUrl}
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-5 py-3 text-xs font-bold text-slate-700 shadow-2xs transition"
                   >
                     <span>Send via Email</span>
@@ -147,7 +129,7 @@ function DateChange() {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-bold text-[#1D68E2] hover:underline cursor-pointer"
+                    className="text-xs font-bold text-[#E6582A] hover:underline cursor-pointer"
                   >
                     ← Edit or submit another request
                   </button>
@@ -166,7 +148,7 @@ function DateChange() {
                       value={form.bookingRef}
                       onChange={(e) => setForm({ ...form, bookingRef: e.target.value.toUpperCase() })}
                       placeholder="e.g. FD78491 or HTL948271"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
 
@@ -180,7 +162,7 @@ function DateChange() {
                       value={form.fullName}
                       onChange={(e) => setForm({ ...form, fullName: e.target.value.toUpperCase() })}
                       placeholder="as on original booking"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
                 </div>
@@ -196,7 +178,7 @@ function DateChange() {
                       value={form.contact}
                       onChange={(e) => setForm({ ...form, contact: e.target.value })}
                       placeholder="+91 98765 43210 or email@domain.com"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
 
@@ -207,7 +189,7 @@ function DateChange() {
                     <select
                       value={form.serviceType}
                       onChange={(e) => setForm({ ...form, serviceType: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100 cursor-pointer"
                     >
                       <option value="flight">Flight Reservation Only</option>
                       <option value="hotel">Hotel Booking Only</option>
@@ -226,7 +208,7 @@ function DateChange() {
                       required
                       value={form.newDepDate}
                       onChange={(e) => setForm({ ...form, newDepDate: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
 
@@ -238,7 +220,7 @@ function DateChange() {
                       type="date"
                       value={form.newRetDate}
                       onChange={(e) => setForm({ ...form, newRetDate: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                     />
                   </div>
                 </div>
@@ -252,14 +234,14 @@ function DateChange() {
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
                     placeholder="e.g. Visa interview postponed from 15th Oct to 28th Oct..."
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#1D68E2] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:border-[#E6582A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-100"
                   />
                 </div>
 
                 <div className="pt-3">
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1D68E2] hover:bg-[#1556BE] px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-[#E6582A]/25 transition-all cursor-pointer"
                   >
                     <RotateCcw size={16} />
                     <span>Request Free Date Change</span>
@@ -281,15 +263,15 @@ function DateChange() {
                 href={whatsappRescheduleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#0D8746] hover:bg-[#0A7039] px-5 py-3 text-xs font-bold text-white shadow-md transition-all cursor-pointer"
+                className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-5 py-3 text-xs font-bold text-white shadow-md transition-all cursor-pointer"
               >
                 <MessageCircle size={16} />
                 <span>Urgent WhatsApp Reschedule</span>
               </a>
             </div>
 
-            <div className="rounded-3xl bg-blue-50/70 border border-blue-100 p-6">
-              <h4 className="text-sm font-bold text-[#1D68E2] flex items-center gap-2">
+            <div className="rounded-3xl bg-orange-50/60 border border-orange-200 p-6">
+              <h4 className="text-sm font-bold text-[#E6582A] flex items-center gap-2">
                 <ShieldCheck size={18} />
                 Our Reschedule Guarantee
               </h4>

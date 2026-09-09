@@ -3,478 +3,366 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ChevronDown,
-  Headphones,
   Menu,
   MessageCircle,
+  Phone,
+  Plane,
   X,
   Sparkles,
+  BedDouble,
+  Building2,
+  RotateCcw,
+  Shield,
 } from "lucide-react";
 
 const services = [
   {
     title: "Dummy Flight Ticket",
-    description: "Embassy verifiable airline PNR reservation",
-    price: "₹350",
+    description: "Verifiable flight reservation with live airline PNR",
+    price: "₹299",
     href: "/services/flight-reservation",
+    icon: Plane,
   },
   {
     title: "Dummy Hotel Booking",
-    description: "Confirmed hotel voucher for visa proof",
-    price: "₹250",
+    description: "Confirmed hotel voucher for visa accommodation proof",
+    price: "₹249",
     href: "/services/hotel-booking",
+    icon: BedDouble,
   },
   {
-    title: "Flight + Hotel Package",
-    description: "Complete matching travel itinerary bundle",
-    price: "₹500",
+    title: "Flight + Hotel Combo",
+    description: "Matching flight + hotel reservation bundle",
+    price: "₹499",
+    badge: "Popular",
     href: "/services/flight-hotel-package",
-  },
-  {
-    title: "Proof of Return Ticket",
-    description: "For immigration counters & border clearance",
-    price: "₹1,000",
-    href: "/services/return-ticket",
+    icon: Building2,
   },
   {
     title: "Travel Medical Insurance",
-    description: "Schengen & embassy approved medical cover",
-    price: "₹400",
-    href: "/contact",
+    description: "Schengen €30,000 & embassy compliant medical cover",
+    price: "₹699",
+    href: "/services/travel-insurance",
+    icon: Shield,
   },
   {
-    title: "Visa & Embassy Guidance",
-    description: "Consulate requirements & document checklists",
-    price: "Guide",
-    href: "/visa-guide",
+    title: "Cancellation Return Ticket",
+    description: "Proof of return for immigration & airline check-in",
+    price: "₹1,499",
+    badge: "Airport Clearance",
+    href: "/services/return-ticket",
+    icon: RotateCcw,
   },
-];
-
-const navItems = [
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Visa Guidance", href: "/visa-guide" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
 ];
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [currency, setCurrency] = useState("INR");
 
   const servicesRef = useRef(null);
   const timeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsServicesOpen(true);
   };
 
   const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setIsServicesOpen(false);
-    }, 180);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setIsServicesOpen(false), 180);
   };
 
-  // Close on outside click or Escape key
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(event.target)
-      ) {
+      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
         setIsServicesOpen(false);
       }
     };
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setIsServicesOpen(false);
-      }
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
   const closeMenus = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
   };
 
+  const scrollToBooking = () => {
+    closeMenus();
+    const el = document.getElementById("booking");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white">
-      {/* TOP TRUST BAR */}
-      <div className="bg-brand-navy">
-        <div className="mx-auto flex h-10 max-w-[1440px] items-center justify-between px-5 sm:px-6 lg:px-8">
-          <p className="text-[11px] font-medium text-slate-300 sm:text-xs">
-            <span className="hidden sm:inline">
-              Travel reservations for visa, immigration & travel documentation
-            </span>
-            <span className="sm:hidden">
-              Travel documentation made simple
-            </span>
-          </p>
+      {/* ─────────────────────────────────────────────────────────────
+          TOPBAR: SLEEK EXECUTIVE NAVY (Indian Support Only)
+      ───────────────────────────────────────────────────────────── */}
+      <div className="bg-[#0F172A] text-slate-300 border-b border-slate-800">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 text-[11px] font-semibold">
+          {/* INDIAN SUPPORT HELPLINE */}
+          <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+            <a href="tel:+919560099481" className="text-white hover:text-orange-400 transition shrink-0 flex items-center gap-1.5 font-bold">
+              <Phone size={11} className="text-orange-400 shrink-0" />
+              <span className="hidden sm:inline">India Helpline: +91 95600 99481</span>
+              <span className="sm:hidden text-[10px] sm:text-[11px]">+91 95600 99481</span>
+            </a>
+            <span className="text-slate-700 hidden sm:inline">|</span>
+            <span className="text-[10px] text-slate-400 hidden sm:inline">24/7 Immediate Ticket Generation</span>
+          </div>
 
+          {/* WHATSAPP ACTION */}
           <a
-            href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20assistance"
+            href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20a%20dummy%20ticket"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[11px] font-semibold text-white transition-opacity hover:opacity-80 sm:text-xs"
+            className="flex items-center gap-1 sm:gap-1.5 font-bold text-emerald-400 hover:text-emerald-300 hover:underline shrink-0 ml-2"
           >
-            <MessageCircle size={14} />
-            <span className="hidden md:inline">Need help?</span>
-            WhatsApp
-            <ArrowRight size={13} />
+            <MessageCircle size={13} className="shrink-0" />
+            <span className="hidden min-[380px]:inline">WhatsApp Support</span>
+            <span className="min-[380px]:hidden inline text-[10px]">WhatsApp</span>
+            <ArrowRight size={11} className="shrink-0 hidden min-[380px]:inline" />
           </a>
         </div>
       </div>
 
-      {/* MAIN HEADER */}
-      <div className="border-b border-border/80 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center px-5 sm:px-6 lg:px-8">
+      {/* ─────────────────────────────────────────────────────────────
+          MAIN NAVBAR
+      ───────────────────────────────────────────────────────────── */}
+      <div className="border-b border-slate-200/80 bg-white shadow-xs">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
           
-          {/* BRAND */}
+          {/* BRAND LOGO */}
           <Link
             to="/"
             onClick={closeMenus}
-            aria-label="FlyDummyTicket Home"
-            className="flex shrink-0 items-center"
+            className="flex items-center gap-2 shrink-0 min-w-0"
           >
-            <span className="text-[18px] font-extrabold tracking-[-0.065em] text-heading sm:text-[20px]">
-              FLY
-            </span>
-
-            <span className="text-[18px] font-extrabold tracking-[-0.065em] text-brand-blue sm:text-[20px]">
-              DUMMY
-            </span>
-
-            <span className="text-[18px] font-extrabold tracking-[-0.065em] text-heading sm:text-[20px]">
-              TICKET
-            </span>
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-[#E6582A] text-white shadow-sm shadow-[#E6582A]/30 shrink-0">
+              <Plane size={18} className="rotate-[-45deg] sm:hidden" />
+              <Plane size={20} className="rotate-[-45deg] hidden sm:block" />
+            </div>
+            <div className="flex flex-col min-w-0">
+              <span className="font-black text-base sm:text-lg tracking-tight text-slate-900 leading-tight">
+                FLY<span className="text-[#E6582A]">DUMMY</span>TICKET
+              </span>
+              <span className="text-[8px] sm:text-[9px] font-bold text-slate-400 tracking-wider uppercase -mt-0.5 truncate hidden min-[360px]:block">
+                Original tickets • Verifiable PNR
+              </span>
+            </div>
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="mx-auto hidden h-full items-stretch xl:flex">
-            {/* SERVICES DROPDOWN WITH HOVER & CLICK SUPPORT */}
+          {/* DESKTOP MENU */}
+          <nav className="hidden items-center gap-1 lg:flex">
+            <Link
+              to="/"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              Home
+            </Link>
+
+            {/* SERVICES DROPDOWN */}
             <div
               ref={servicesRef}
-              className="services-nav-group relative flex h-full items-center"
+              className="relative"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               <button
                 type="button"
-                onClick={() => setIsServicesOpen((prev) => !prev)}
-                className={`services-nav-button flex h-full items-center gap-1.5 px-4 text-sm font-semibold transition-colors ${
-                  isServicesOpen ? "is-open text-brand-blue" : "text-heading"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className={`flex items-center gap-1 px-3 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
+                  isServicesOpen ? "text-[#E6582A] bg-orange-50" : "text-slate-700 hover:text-[#E6582A]"
                 }`}
-                aria-expanded={isServicesOpen}
-                aria-haspopup="true"
-                id="services-menu-trigger"
               >
                 Services
                 <ChevronDown
-                  size={15}
-                  className={`services-chevron transition-transform duration-200 ${
-                    isServicesOpen ? "is-open text-brand-blue" : ""
-                  }`}
+                  size={13}
+                  className={`transition-transform duration-200 ${isServicesOpen ? "rotate-180 text-[#E6582A]" : ""}`}
                 />
               </button>
 
-              {/* DROPDOWN MENU CONTAINER */}
-              <div
-                className={`services-dropdown-menu absolute left-0 top-full z-50 pt-1 ${
-                  isServicesOpen ? "is-open" : ""
-                }`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="w-[580px] rounded-2xl border border-border bg-white p-3.5 shadow-floating">
-                  <div className="flex items-center justify-between border-b border-border/80 px-3 pb-3 pt-1.5">
-                    <div>
-                      <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-blue">
-                        <Sparkles size={13} />
-                        Our Services & Pricing
-                      </p>
-                      <p className="mt-0.5 text-xs text-body">
-                        Embassy-accepted travel reservations with verifiable PNR
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 border border-emerald-200/80">
-                      ● Active Airline PNR
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-1.5 pt-3">
-                    {services.map((service) => (
-                      <Link
-                        key={service.title}
-                        to={service.href}
-                        onClick={closeMenus}
-                        className="group rounded-xl p-3 transition-all duration-150 hover:bg-surface-soft hover:shadow-xs border border-transparent hover:border-border/60"
-                      >
-                        <div className="flex items-start justify-between gap-2.5">
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2">
-                              <h3 className="text-sm font-bold text-heading group-hover:text-brand-blue transition-colors truncate">
-                                {service.title}
-                              </h3>
-                              {service.price && (
-                                <span className={`shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
-                                  service.price === "FREE"
-                                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                                    : service.price === "Guide"
-                                    ? "bg-purple-50 text-purple-700 border border-purple-200"
-                                    : "bg-blue-50 text-brand-blue border border-blue-200"
-                                }`}>
-                                  {service.price}
-                                </span>
-                              )}
+              {isServicesOpen && (
+                <div className="absolute left-0 top-full z-50 pt-2 animate-in fade-in duration-150">
+                  <div className="w-88 rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl">
+                    <div className="grid gap-1">
+                      {services.map((s) => {
+                        const Icon = s.icon;
+                        return (
+                          <Link
+                            key={s.title}
+                            to={s.href}
+                            onClick={closeMenus}
+                            className="group flex items-center justify-between rounded-xl p-2.5 hover:bg-orange-50/70 transition"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-100 text-[#E6582A]">
+                                <Icon size={14} />
+                              </div>
+                              <div>
+                                <p className="text-xs font-bold text-slate-900 group-hover:text-[#E6582A] transition">
+                                  {s.title}
+                                </p>
+                                <p className="text-[10px] text-slate-400">{s.description}</p>
+                              </div>
                             </div>
-
-                            <p className="mt-1 text-xs leading-4.5 text-body">
-                              {service.description}
-                            </p>
-                          </div>
-
-                          <ArrowRight
-                            size={15}
-                            className="mt-1 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-brand-blue"
-                          />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* QUICK WHATSAPP ASSISTANCE FOOTER */}
-                  <div className="mt-2.5 flex items-center justify-between rounded-xl bg-slate-50 px-3.5 py-2.5 border border-slate-100">
-                    <div className="flex items-center gap-2 text-xs text-slate-600">
-                      <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Need instant booking or custom route quote?</span>
+                            <span className="text-xs font-black text-[#E6582A] ml-2 shrink-0">{s.price}</span>
+                          </Link>
+                        );
+                      })}
                     </div>
-                    <a
-                      href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20assistance%20with%20a%20ticket"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
-                    >
-                      WhatsApp Us <ArrowRight size={12} />
-                    </a>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="flex h-full items-center px-4 text-sm font-semibold text-heading transition-colors hover:text-brand-blue"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+            <Link
+              to="/pricing"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              Pricing
+            </Link>
 
-          {/* RIGHT ACTIONS */}
-          <div className="ml-auto flex shrink-0 items-center gap-2.5">
-            
-            {/* TABLET + DESKTOP CURRENCY */}
-            <div className="hidden items-center rounded-full border border-border bg-surface-soft p-1 md:flex">
-              <button
-                type="button"
-                onClick={() => setCurrency("INR")}
-                className={`rounded-full px-3 py-1.5 text-xs font-bold transition ${
-                  currency === "INR"
-                    ? "bg-white text-heading shadow-sm"
-                    : "text-body"
-                }`}
-              >
-                🇮🇳 INR
-              </button>
+            <Link
+              to="/how-it-works"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              How It Works
+            </Link>
 
-              <button
-                type="button"
-                onClick={() => setCurrency("USD")}
-                className={`rounded-full px-3 py-1.5 text-xs font-bold transition ${
-                  currency === "USD"
-                    ? "bg-white text-heading shadow-sm"
-                    : "text-body"
-                }`}
-              >
-                USD
-              </button>
-            </div>
+            <Link
+              to="/visa-guide"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              Visa Guide
+            </Link>
 
-            {/* DESKTOP SUPPORT */}
+            <Link
+              to="/faq"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              FAQs
+            </Link>
+
             <Link
               to="/contact"
-              className="hidden items-center gap-2 text-sm font-semibold text-heading transition-colors hover:text-brand-blue xl:flex"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
-              <Headphones size={17} />
-              Support
+              Contact
             </Link>
+          </nav>
 
-            {/* BOOK NOW - TABLET AND DESKTOP */}
-            <Link
-              to="/services/flight-reservation"
-              className="hidden h-11 items-center gap-2 rounded-xl bg-brand-navy px-5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-blue md:inline-flex"
+          {/* RIGHT ACTION BUTTON */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            <a
+              href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20want%20to%20order%20a%20ticket"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-emerald-700 shadow-xs transition"
             >
-              Book Now
-              <ArrowRight size={17} strokeWidth={2.4} />
-            </Link>
+              <MessageCircle size={14} />
+              <span>WhatsApp</span>
+            </a>
 
-            {/* MENU */}
             <button
               type="button"
-              onClick={() => {
-                setIsMobileMenuOpen(!isMobileMenuOpen);
-                setIsServicesOpen(false);
-              }}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-heading transition-colors hover:bg-surface-soft xl:hidden"
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
+              onClick={scrollToBooking}
+              className="inline-flex items-center gap-1 sm:gap-1.5 rounded-xl bg-[#E6582A] px-2.5 sm:px-4 py-2 text-[11px] sm:text-xs font-bold text-white shadow-md shadow-[#E6582A]/25 hover:bg-[#C9441B] transition cursor-pointer"
             >
-              {isMobileMenuOpen ? <X size={21} /> : <Menu size={22} />}
+              <span>Buy Ticket</span>
+              <ArrowRight size={12} className="hidden min-[380px]:inline" />
+            </button>
+
+            {/* MOBILE TOGGLE */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 lg:hidden shrink-0 cursor-pointer"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* TABLET / MOBILE MENU */}
+      {/* MOBILE MENU DRAWER */}
       {isMobileMenuOpen && (
-        <div className="absolute left-0 top-full w-full border-b border-border bg-white shadow-floating xl:hidden">
-          <div className="mx-auto max-w-[1440px] px-5 py-6 sm:px-6 lg:px-8">
-
-            {/* CURRENCY ONLY ON MOBILE */}
-            <div className="mb-6 flex items-center justify-between md:hidden">
-              <span className="text-xs font-bold uppercase tracking-[0.12em] text-body">
-                Currency
-              </span>
-
-              <div className="flex rounded-full border border-border bg-surface-soft p-1">
-                <button
-                  type="button"
-                  onClick={() => setCurrency("INR")}
-                  className={`rounded-full px-3 py-1.5 text-xs font-bold ${
-                    currency === "INR"
-                      ? "bg-white text-heading shadow-sm"
-                      : "text-body"
-                  }`}
-                >
-                  🇮🇳 INR
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setCurrency("USD")}
-                  className={`rounded-full px-3 py-1.5 text-xs font-bold ${
-                    currency === "USD"
-                      ? "bg-white text-heading shadow-sm"
-                      : "text-body"
-                  }`}
-                >
-                  USD
-                </button>
-              </div>
-            </div>
-
-            {/* SERVICES */}
+        <div className="border-b border-slate-200 bg-white px-4 py-4 shadow-xl lg:hidden animate-in slide-in-from-top-2 duration-150">
+          <div className="space-y-3">
             <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-blue">
-                Services
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 px-2">
+                Our 5 Services
               </p>
-
-              <div className="border-y border-border">
-                {services.map((service) => (
+              <div className="space-y-1">
+                {services.map((s) => (
                   <Link
-                    key={service.title}
-                    to={service.href}
+                    key={s.title}
+                    to={s.href}
                     onClick={closeMenus}
-                    className="group flex items-center justify-between border-b border-border py-4 last:border-b-0"
+                    className="flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-slate-800 hover:bg-orange-50"
                   >
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-[15px] font-bold text-heading">
-                          {service.title}
-                        </h3>
-                        {service.price && (
-                          <span className={`shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-bold ${
-                            service.price === "FREE"
-                              ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                              : service.price === "Guide"
-                              ? "bg-purple-50 text-purple-700 border border-purple-200"
-                              : "bg-blue-50 text-brand-blue border border-blue-200"
-                          }`}>
-                            {service.price}
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="mt-1 text-xs text-body">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    <ArrowRight
-                      size={18}
-                      className="shrink-0 text-body transition-transform group-hover:translate-x-1"
-                    />
+                    <span>{s.title}</span>
+                    <span className="font-extrabold text-[#E6582A]">{s.price}</span>
                   </Link>
                 ))}
               </div>
             </div>
 
-            {/* NAVIGATION */}
-            <nav className="mt-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  onClick={closeMenus}
-                  className="block border-b border-border py-4 text-[15px] font-bold text-heading"
-                >
-                  {item.label}
+            <div className="border-t border-slate-100 pt-3">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 px-2">
+                Navigation
+              </p>
+              <div className="grid grid-cols-2 gap-1">
+                <Link to="/" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  Home
                 </Link>
-              ))}
+                <Link to="/pricing" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  Pricing
+                </Link>
+                <Link to="/how-it-works" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  How It Works
+                </Link>
+                <Link to="/visa-guide" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  Visa Guide
+                </Link>
+                <Link to="/faq" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  FAQs
+                </Link>
+                <Link to="/contact" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  Contact
+                </Link>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 pt-3 space-y-2">
+              <button
+                type="button"
+                onClick={scrollToBooking}
+                className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#E6582A] text-xs font-bold text-white shadow-xs"
+              >
+                <span>Buy Dummy Ticket Now (₹299)</span>
+                <ArrowRight size={14} />
+              </button>
 
               <a
-                href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20help"
+                href="https://wa.me/919560099481?text=Hi%20FlyDummyTicket%20Team%2C%20I%20need%20a%20dummy%20ticket"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}
-                className="flex items-center gap-2 py-4 text-[15px] font-bold text-heading"
+                className="flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 text-xs font-bold text-white shadow-xs"
               >
-                <Headphones size={18} />
-                Help & Support
+                <MessageCircle size={15} />
+                <span>Chat on WhatsApp (+91 95600 99481)</span>
               </a>
-            </nav>
-
-            {/* MOBILE CTA */}
-            <Link
-              to="/services/flight-reservation"
-              onClick={closeMenus}
-              className="mt-3 flex h-[54px] items-center justify-center gap-2 rounded-xl bg-brand-navy text-sm font-bold text-white md:hidden"
-            >
-              Book Now
-              <ArrowRight size={18} />
-            </Link>
+            </div>
           </div>
         </div>
       )}

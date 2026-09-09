@@ -3,21 +3,21 @@ import { ChevronRight, Lock, ShieldCheck } from "lucide-react";
 
 function PrivacyPolicy() {
   return (
-    <div className="bg-gradient-to-b from-[#F0F5FD] via-white to-[#F8FAFD] py-10 sm:py-14 lg:py-18">
-      <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-orange-50/40 via-white to-slate-50 py-10 sm:py-14 lg:py-18">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#1D68E2]">
+          <Link to="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
-          <span className="font-bold text-[#1D68E2]">Privacy Policy</span>
+          <span className="font-bold text-[#E6582A]">Privacy Policy</span>
         </nav>
 
         {/* Header */}
         <div className="border-b border-slate-200 pb-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#1D68E2] shadow-xs">
-            <Lock size={13} className="text-[#1D68E2]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#E6582A] shadow-xs">
+            <Lock size={13} className="text-[#E6582A]" />
             <span>DATA PROTECTION & PRIVACY</span>
           </div>
 

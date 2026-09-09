@@ -1,515 +1,382 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   BedDouble,
   Building2,
   Check,
-  CheckCircle2,
-  ExternalLink,
-  Eye,
-  FileCheck2,
-  FileText,
-  Headphones,
-  HeartHandshake,
+  ChevronLeft,
+  ChevronRight,
   MessageCircle,
   Plane,
-  PlaneTakeoff,
   RotateCcw,
-  ShieldCheck,
-  Sparkles,
+  Shield,
 } from "lucide-react";
 
-import flightImg from "../../assets/images/service_flight.jpg";
-import hotelImg from "../../assets/images/service_hotel.jpg";
-import comboImg from "../../assets/images/service_combo.jpg";
-import returnImg from "../../assets/images/service_return.jpg";
-
-const packages = [
+const allServices = [
   {
     id: "flight",
-    name: "Dummy Flight Ticket",
-    category: "visa",
-    description: "Embassy-approved verifiable dummy flight ticket with active airline PNR.",
-    price: "350",
-    unit: "/ person",
+    title: "DUMMY FLIGHT TICKET",
+    priceInr: "₹299",
+    priceUsd: "$4 USD",
+    subtext: "per person",
     href: "/services/flight-reservation",
-    image: flightImg,
     icon: Plane,
-    iconColor: "text-[#1D68E2]",
-    checkBg: "bg-[#1D68E2]",
-    badge: "Most Popular",
-    buttonText: "Get Flight Ticket",
-    buttonClass:
-      "bg-[#EAF2FE] text-[#1D68E2] hover:bg-[#DBEAFE] border border-blue-100 hover:border-blue-200",
-    features: [
-      "Verifiable dummy flight ticket",
-      "Maximum of 2 flights",
-      "Validity depends on your journey route and journey date. Generally for 2-3 weeks",
-      "Fast delivery between 10 to 30 minutes",
-      "IATA standard PDF format with barcode",
-      "Accepted at Schengen, US, UK, Canada & UAE embassies",
-      "100% Free date change guarantee",
+    waText: "Hi FlyDummyTicket Team, I would like to order a Dummy Flight Ticket for Visa (₹299 / $4).",
+    featured: false,
+    points: [
+      "Flight reservation with live airline PNR",
+      "Verifiable directly on airline website",
+      "100% Free date changes allowed",
+      "Use for visa application / embassy interview",
+      "IATA standard PDF with barcode",
+      "Delivered in 10 to 30 minutes",
     ],
   },
   {
     id: "hotel",
-    name: "Dummy Hotel Booking",
-    category: "visa",
-    description: "Confirmed hotel voucher for visa applications and embassy accommodation proof.",
-    price: "250",
-    unit: "/ person",
+    title: "DUMMY HOTEL BOOKING",
+    priceInr: "₹249",
+    priceUsd: "$3 USD",
+    subtext: "per voucher",
     href: "/services/hotel-booking",
-    image: hotelImg,
     icon: BedDouble,
-    iconColor: "text-[#10B981]",
-    checkBg: "bg-[#10B981]",
-    buttonText: "Get Hotel Voucher",
-    buttonClass:
-      "bg-[#EAF8F0] text-[#0D9488] hover:bg-[#D1FAE5] border border-emerald-100 hover:border-emerald-200",
-    features: [
-      "Official hotel booking voucher format",
-      "Includes hotel address, contact & confirmation codes",
+    waText: "Hi FlyDummyTicket Team, I would like to order a Dummy Hotel Booking Voucher (₹249 / $3).",
+    featured: false,
+    points: [
+      "Confirmed hotel booking voucher",
+      "Real hotel address, telephone & confirmation number",
       "Synchronized check-in & check-out dates",
-      "Accepted for all global visa applications",
-      "Delivered straight to WhatsApp in 10 to 30 mins",
+      "Meets Schengen Visa Code Article 14 lodging proof",
+      "Free date modifications if appointments shift",
+      "Instant PDF delivery on WhatsApp & Email",
     ],
   },
   {
     id: "combo",
-    name: "Flight + Hotel Combo",
-    category: "visa",
-    featured: true,
-    description: "Complete matching travel itinerary in one package — ideal for all visa types.",
-    price: "500",
-    unit: "/ bundle",
+    title: "FLIGHT + HOTEL COMBO",
+    priceInr: "₹499",
+    priceUsd: "$6 USD",
+    subtext: "bundle package",
     href: "/services/flight-hotel-package",
-    image: comboImg,
-    checkBg: "bg-[#1D68E2]",
-    badge: "★ BEST VALUE COMBO",
-    buttonText: "Get Complete Package",
-    buttonClass:
-      "bg-[#1D68E2] text-white hover:bg-[#1556BE] shadow-[0_4px_14px_rgba(29,104,226,0.3)] hover:shadow-[0_6px_20px_rgba(29,104,226,0.4)]",
-    features: [
-      "Flight reservation with sample PNR",
-      "Confirmed hotel booking voucher",
-      "Perfect matching travel dates & cities",
-      "Both documents in high-resolution PDF",
-      "Save ₹100 compared to individual booking",
-      "Priority WhatsApp dispatch support",
-    ],
-  },
-  {
-    id: "onward",
-    name: "Proof of Return (Immigration)",
-    category: "immigration",
-    description: "Return ticket for international airport check-in counters & border clearance.",
-    price: "1000",
-    unit: "/ person",
-    href: "/services/return-ticket",
-    image: returnImg,
-    icon: RotateCcw,
-    iconColor: "text-[#8B5CF6]",
-    checkBg: "bg-[#8B5CF6]",
-    buttonText: "Get Return Ticket",
-    buttonClass:
-      "bg-[#F3EBFC] text-[#7C3AED] hover:bg-[#E9DCFA] border border-purple-100 hover:border-purple-200",
-    features: [
-      "Accepted at airline check-in & immigration",
-      "Real-time verifiable onward reservation",
-      "Prevents boarding denial on one-way flights",
-      "For Thailand, Bali, UK, UAE & worldwide travel",
-      "Immediate 10 to 30-minute delivery",
-    ],
-  },
-  {
-    id: "cancellation-return",
-    name: "Cancellation Return Ticket",
-    category: "immigration",
-    description: "Authentic cancellable airline reservation for rigorous border control checks.",
-    price: "1500",
-    unit: "/ ticket",
-    href: `https://wa.me/919560099481?text=${encodeURIComponent(
-      "Hi FlyDummyTicket Team, I need a Cancellation Return Ticket (₹1500) for airport immigration."
-    )}`,
-    isExternal: true,
-    image: returnImg,
-    icon: ShieldCheck,
-    iconColor: "text-amber-600",
-    checkBg: "bg-amber-600",
-    buttonText: "Book on WhatsApp (₹1500)",
-    buttonClass:
-      "bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200",
-    features: [
-      "Genuine cancellable airline booking reservation",
-      "Checkable directly on airline website portal",
-      "Automated cancellation handled with zero penalty",
-      "Recommended for strict border jurisdictions",
-      "24/7 airport emergency priority queue",
+    icon: Building2,
+    waText: "Hi FlyDummyTicket Team, I would like to order a Flight + Hotel Combo Package (₹499 / $6).",
+    featured: true,
+    badge: "Most Popular • Best Value",
+    points: [
+      "Actual verifiable flight + hotel reservations",
+      "Checkable on airline & hotel booking portals",
+      "Accommodation voucher up to 30 days",
+      "Perfect synchronized travel dates",
+      "Free date modifications included",
+      "Priority express WhatsApp dispatch",
     ],
   },
   {
     id: "insurance",
-    name: "Travel Medical Insurance",
-    category: "visa",
-    description: "Schengen & embassy approved travel insurance with zero deductible coverage.",
-    price: "400",
-    unit: "/ person",
-    href: `https://wa.me/919560099481?text=${encodeURIComponent(
-      "Hi FlyDummyTicket Team, I want to book Travel Insurance (₹400 / Schengen ₹700) for my visa."
-    )}`,
-    isExternal: true,
-    image: hotelImg,
-    icon: HeartHandshake,
-    iconColor: "text-rose-600",
-    checkBg: "bg-rose-600",
-    buttonText: "Get Insurance on WhatsApp",
-    buttonClass:
-      "bg-rose-50 text-rose-800 hover:bg-rose-100 border border-rose-200",
-    features: [
-      "Meets €30,000 / $50,000 embassy requirements",
-      "Comprehensive Schengen coverage available at ₹700",
-      "COVID-19 & emergency hospitalization covered",
-      "Accepted at all VFS, BLS & Consular centers",
-      "Delivered instantly as verifiable PDF policy",
+    title: "TRAVEL INSURANCE",
+    priceInr: "₹699",
+    priceUsd: "$9 USD",
+    subtext: "embassy compliant",
+    href: "/services/travel-insurance",
+    icon: Shield,
+    waText: "Hi FlyDummyTicket Team, I would like to order Travel Medical Insurance for Visa (₹699 / $9).",
+    featured: false,
+    points: [
+      "Minimum €30,000 / $50,000 medical emergency cover",
+      "Meets Schengen Article 15 visa requirements",
+      "Includes emergency medical evacuation & repatriation",
+      "Accepted by all 29 Schengen embassies worldwide",
+      "Official certificate with verification QR code",
+      "Delivered within 15 to 30 minutes",
     ],
   },
   {
-    id: "otb",
-    name: "Ok To Board (OTB) Clearance",
-    category: "immigration",
-    description: "Mandatory airline verification clearance for flights to Dubai, UAE & Gulf nations.",
-    price: "250",
-    unit: "/ person",
-    href: `https://wa.me/919560099481?text=${encodeURIComponent(
-      "Hi FlyDummyTicket Team, I need Ok To Board (OTB) clearance (₹250) for my flight."
-    )}`,
-    isExternal: true,
-    image: flightImg,
-    icon: CheckCircle2,
-    iconColor: "text-[#1D68E2]",
-    checkBg: "bg-[#1D68E2]",
-    buttonText: "Get OTB on WhatsApp (₹250)",
-    buttonClass:
-      "bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200",
-    features: [
-      "Mandatory for UAE/Gulf visit & employment visas",
-      "Updated directly in airline reservation system",
-      "Air India Express, IndiGo, SpiceJet, flydubai",
-      "Fast processing within 2–4 hours",
-      "Confirmation update sent via WhatsApp",
+    id: "return",
+    title: "CANCELLATION RETURN",
+    priceInr: "₹1,499",
+    priceUsd: "$19 USD",
+    subtext: "per ticket",
+    href: "/services/return-ticket",
+    icon: RotateCcw,
+    waText: "Hi FlyDummyTicket Team, I would like to order a Cancellation Return Ticket for Immigration (₹1,499 / $19).",
+    featured: false,
+    badge: "Airport Clearance",
+    points: [
+      "Return ticket for airport immigration clearance",
+      "Verifiable live on airline check-in systems",
+      "Prevents denied boarding on 1-way flights",
+      "Accepted at airport borders worldwide",
+      "Built-in cancellation protection",
+      "24/7 priority boarding assistance support",
     ],
   },
 ];
 
-const trustHighlights = [
+const additionalServices = [
   {
-    icon: ShieldCheck,
-    title: "100% Embassy Accepted",
-    desc: "Meets official IATA & consular standards",
+    title: "Past Dated Tickets",
+    desc: "For travel claims & tax proof",
+    price: "₹2,400 (35 USD)",
+    href: "/contact",
   },
   {
-    icon: Headphones,
-    title: "24/7 WhatsApp Support",
-    desc: "Direct help on +91 95600 99481",
+    title: "Schengen Plus UK",
+    desc: "Dummy ticket with official e-receipt",
+    price: "39 GBP",
+    href: "/contact",
   },
   {
-    icon: FileText,
-    title: "Rapid 10 to 30 Minute Delivery",
-    desc: "Instant high-resolution PDF generation",
+    title: "Ticket with e-Ticket Number",
+    desc: "Issued with 13-digit e-ticket code",
+    price: "₹3,500 (49 USD)",
+    href: "/contact",
+  },
+  {
+    title: "Free Date Change Service",
+    desc: "100% free if appointment changes",
+    price: "FREE (₹0)",
+    href: "/services/date-change",
   },
 ];
 
-function Services() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredPackages =
-    activeCategory === "all"
-      ? packages
-      : packages.filter((pkg) => pkg.category === activeCategory);
-
+function PricingCard({ plan, isCarousel = false }) {
+  const Icon = plan.icon;
   return (
-    <section
-      id="services"
-      className="relative bg-gradient-to-b from-[#F4F8FD] via-white to-[#F0F5FD] py-16 sm:py-20 lg:py-28 overflow-hidden"
+    <div
+      className={`relative flex flex-col justify-between rounded-3xl bg-white p-5 sm:p-7 transition-all duration-200 ${
+        isCarousel
+          ? "w-[85vw] max-w-[340px] shrink-0 snap-center shadow-md border border-slate-200"
+          : "border border-slate-200 shadow-xs hover:border-slate-300 hover:shadow-md"
+      } ${
+        plan.featured
+          ? "border-2 border-[#EA580C] shadow-xl shadow-orange-500/10"
+          : ""
+      }`}
     >
-      <div id="packages" className="absolute -top-10" />
-      {/* Background doodles */}
-      <div className="pointer-events-none absolute top-10 right-10 hidden select-none lg:block opacity-60">
-        <span className="font-handwriting text-2xl font-bold tracking-wide text-slate-500/80 rotate-[5deg] block">
-          Travel with Confidence
-        </span>
+      {plan.badge && (
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
+          <span className="rounded-full bg-[#EA580C] px-3.5 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-xs">
+            {plan.badge}
+          </span>
+        </div>
+      )}
+
+      <div>
+        {/* PLAN TITLE */}
+        <div className="flex items-center justify-center gap-2 pb-3 border-b border-slate-100">
+          <Icon size={16} className={plan.featured ? "text-[#EA580C]" : "text-slate-600"} />
+          <h3 className="text-xs sm:text-sm font-black tracking-wider uppercase text-slate-800">
+            {plan.title}
+          </h3>
+        </div>
+
+        {/* PRICE */}
+        <div className="py-5 text-center">
+          <span className="text-3xl sm:text-4xl font-black text-slate-900">{plan.priceInr}</span>
+          <p className="text-xs text-slate-400 font-bold mt-1">
+            {plan.priceUsd} • {plan.subtext}
+          </p>
+        </div>
+
+        {/* POINTS LIST */}
+        <ul className="space-y-2 text-xs text-slate-600 mb-6">
+          {plan.points.map((pt, i) => (
+            <li
+              key={pt}
+              className={`flex items-center gap-2 p-2 rounded-lg ${
+                i % 2 === 0 ? "bg-[#F8FAFC]" : "bg-transparent"
+              }`}
+            >
+              <Check size={14} className="text-emerald-600 shrink-0" />
+              <span className="leading-tight">{pt}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/90 px-4 py-1.5 shadow-[0_2px_12px_rgba(37,99,235,0.06)] backdrop-blur-sm">
-            <Plane className="h-3.5 w-3.5 text-[#1D68E2] -rotate-45" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1D68E2]">
-              TRANSPARENT PRICING &bull; ALL-INCLUSIVE
-            </span>
-          </div>
+      {/* ACTION BUTTON */}
+      <div className="space-y-2">
+        <a
+          href={`https://wa.me/919560099481?text=${encodeURIComponent(plan.waText)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex h-11 w-full items-center justify-center gap-2 rounded-xl text-xs font-black uppercase tracking-wider transition ${
+            plan.featured
+              ? "bg-[#EA580C] text-white hover:bg-[#C2410C] shadow-md shadow-orange-500/25"
+              : "bg-slate-900 text-white hover:bg-slate-800"
+          }`}
+        >
+          <MessageCircle size={15} />
+          <span>BUY NOW ({plan.priceInr})</span>
+        </a>
 
-          <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.03em] text-[#0F172A] sm:text-4xl lg:text-[44px] leading-[1.12]">
-            Our Complete Service & <span className="text-[#1D68E2]">Pricing Catalog</span>
+        <Link
+          to={plan.href}
+          className="flex h-9 w-full items-center justify-center text-xs font-bold text-slate-500 hover:text-slate-800"
+        >
+          <span>More details & requirements</span>
+          <ArrowRight size={12} className="ml-1" />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Services() {
+  const scrollRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const index = Math.round(scrollLeft / (clientWidth * 0.85));
+      setActiveSlide(Math.min(index, allServices.length - 1));
+    }
+  };
+
+  const scrollToSlide = (index) => {
+    if (scrollRef.current) {
+      const card = scrollRef.current.children[index];
+      if (card) {
+        card.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
+      setActiveSlide(index);
+    }
+  };
+
+  const nextSlide = () => {
+    const next = (activeSlide + 1) % allServices.length;
+    scrollToSlide(next);
+  };
+
+  const prevSlide = () => {
+    const prev = (activeSlide - 1 + allServices.length) % allServices.length;
+    scrollToSlide(prev);
+  };
+
+  return (
+    <section id="pricing" className="scroll-mt-20 bg-[#F8FAFC] py-14 sm:py-20 border-b border-slate-200/80">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* SECTION TITLE */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+          <span className="inline-block text-xs font-black uppercase tracking-widest text-[#EA580C] bg-orange-50 px-3 py-1 rounded-full border border-orange-200/60 mb-2">
+            AFFORDABLE & TRANSPARENT
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 leading-tight">
+            Our 5 Official Services & Pricing Plans
           </h2>
-
-          <p className="mt-3 text-sm sm:text-base text-slate-500 font-normal leading-relaxed max-w-2xl mx-auto">
-            Choose from verified dummy itineraries, hotel vouchers, immigration proof of return, and travel insurance designed for 100% embassy compliance.
+          <p className="mt-3 text-sm text-slate-600 font-medium leading-relaxed">
+            No hidden charges, zero taxes added at checkout. Choose the reservation you need for your embassy visa or airport clearance.
           </p>
 
-          {/* Category Filter Tabs */}
-          <div className="mt-7 inline-flex rounded-2xl bg-slate-100 p-1 text-xs sm:text-sm font-extrabold shadow-inner">
-            <button
-              type="button"
-              onClick={() => setActiveCategory("all")}
-              className={`rounded-xl px-4 sm:px-6 py-2 transition-all cursor-pointer ${
-                activeCategory === "all"
-                  ? "bg-[#1D68E2] text-white shadow-md"
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              All Services ({packages.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveCategory("visa")}
-              className={`rounded-xl px-4 sm:px-6 py-2 transition-all cursor-pointer ${
-                activeCategory === "visa"
-                  ? "bg-[#1D68E2] text-white shadow-md"
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Visa & Embassy ({packages.filter((p) => p.category === "visa").length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveCategory("immigration")}
-              className={`rounded-xl px-4 sm:px-6 py-2 transition-all cursor-pointer ${
-                activeCategory === "immigration"
-                  ? "bg-[#1D68E2] text-white shadow-md"
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              Immigration & Airport ({packages.filter((p) => p.category === "immigration").length})
-            </button>
-          </div>
-
-          {/* Sample PDF Notice Strip */}
-          <div className="mt-5 inline-flex items-center gap-2 rounded-xl bg-blue-50 border border-blue-200 px-4 py-2 text-xs font-semibold text-blue-900">
-            <Eye size={14} className="text-[#1D68E2]" />
-            <span>Want to see what an official ticket looks like?</span>
-            <a
-              href="/sample-eticket.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-extrabold text-[#1D68E2] underline hover:text-blue-800 flex items-center gap-1"
-            >
-              Inspect Air India Sample PDF (PNR: 72DB6I)
-              <ExternalLink size={11} />
-            </a>
-          </div>
-        </div>
-
-        {/* ─────────────────────────────────────────────────────────
-            SERVICE CARDS GRID (8 Services)
-        ───────────────────────────────────────────────────────── */}
-        <div className="mt-12 lg:mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
-          {filteredPackages.map((pkg) => {
-            const Icon = pkg.icon;
-            const isFeatured = pkg.featured;
-
-            if (isFeatured) {
-              return (
-                <article
-                  key={pkg.id}
-                  className="group relative flex flex-col justify-between rounded-3xl border-2 border-[#1D68E2] bg-white shadow-[0_12px_36px_rgba(29,104,226,0.18)] hover:shadow-[0_20px_48px_rgba(29,104,226,0.25)] transition-all duration-300 overflow-visible"
-                >
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 whitespace-nowrap">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#1D68E2] px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md">
-                      {pkg.badge}
-                    </span>
-                  </div>
-
-                  <div className="relative min-h-[170px] rounded-t-[22px] overflow-hidden bg-[#0A2558] p-5 pt-8 flex flex-col justify-between">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.name}
-                      className="absolute inset-0 h-full w-full object-cover opacity-45 mix-blend-luminosity transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#081F48] via-[#081F48]/85 to-[#0A2558]/70" />
-
-                    <div className="relative z-10 flex items-center gap-2">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-xs">
-                        <Plane size={16} />
-                      </div>
-                      <span className="text-white/80 font-bold text-sm">+</span>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-xs">
-                        <BedDouble size={16} />
-                      </div>
-                    </div>
-
-                    <div className="relative z-10 mt-2">
-                      <h3 className="text-xl font-extrabold text-white tracking-tight">
-                        {pkg.name}
-                      </h3>
-                      <p className="mt-1 text-xs text-blue-100/85 leading-relaxed">
-                        {pkg.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-6 pt-5 flex-1 flex flex-col justify-between bg-white rounded-b-[22px]">
-                    <div>
-                      <ul className="space-y-2.5">
-                        {pkg.features.map((feature, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-2 text-xs font-semibold text-slate-800 leading-snug"
-                          >
-                            <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#1D68E2] text-white">
-                              <Check size={9} strokeWidth={3.5} />
-                            </span>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-6">
-                      <div className="pt-3 border-t border-slate-100 flex items-baseline gap-1.5">
-                        <span className="text-3xl font-black text-[#1D68E2]">
-                          ₹{pkg.price}
-                        </span>
-                        <span className="text-xs font-medium text-slate-400">
-                          {pkg.unit}
-                        </span>
-                        <span className="line-through text-xs text-slate-400 ml-auto">₹650</span>
-                      </div>
-
-                      <Link
-                        to={pkg.href}
-                        className={`mt-4 w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${pkg.buttonClass}`}
-                      >
-                        <span>{pkg.buttonText}</span>
-                        <ArrowRight size={15} />
-                      </Link>
-                    </div>
-                  </div>
-                </article>
-              );
-            }
-
-            // Standard Service Card
-            return (
-              <article
-                key={pkg.id}
-                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white shadow-[0_4px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.1)] transition-all duration-300 overflow-hidden"
+          {/* MOBILE SWIPE TIP & ARROWS */}
+          <div className="mt-4 flex items-center justify-between lg:hidden px-2">
+            <span className="text-xs font-semibold text-slate-400">
+              👈 Swipe to compare all 5 services
+            </span>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={prevSlide}
+                aria-label="Previous plan"
+                className="h-8 w-8 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 shadow-2xs cursor-pointer"
               >
-                <div className="relative h-36 w-full overflow-hidden bg-slate-100">
-                  <img
-                    src={pkg.image}
-                    alt={pkg.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60" />
-
-                  <div className="absolute -bottom-4 left-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md border border-slate-100">
-                    <Icon size={18} className={pkg.iconColor} />
-                  </div>
-                </div>
-
-                <div className="p-6 pt-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg font-black text-slate-900 tracking-tight leading-snug">
-                      {pkg.name}
-                    </h3>
-                    <p className="mt-1 text-xs text-slate-500 leading-relaxed min-h-[34px]">
-                      {pkg.description}
-                    </p>
-
-                    <ul className="mt-4 space-y-2">
-                      {pkg.features.map((feature, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-xs font-medium text-slate-700 leading-snug"
-                        >
-                          <span
-                            className={`mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full text-white ${pkg.checkBg}`}
-                          >
-                            <Check size={9} strokeWidth={3.5} />
-                          </span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6">
-                    <div className="pt-3 border-t border-slate-100 flex items-baseline gap-1.5">
-                      <span className="text-2xl sm:text-3xl font-black text-slate-900">
-                        ₹{pkg.price}
-                      </span>
-                      <span className="text-xs font-medium text-slate-400">
-                        {pkg.unit}
-                      </span>
-                    </div>
-
-                    {pkg.isExternal ? (
-                      <a
-                        href={pkg.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`mt-4 w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${pkg.buttonClass}`}
-                      >
-                        <MessageCircle size={15} />
-                        <span>{pkg.buttonText}</span>
-                      </a>
-                    ) : (
-                      <Link
-                        to={pkg.href}
-                        className={`mt-4 w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${pkg.buttonClass}`}
-                      >
-                        <span>{pkg.buttonText}</span>
-                        <ArrowRight size={15} />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* ─────────────────────────────────────────────────────────
-            BOTTOM TRUST / FEATURE HIGHLIGHTS BAR
-        ───────────────────────────────────────────────────────── */}
-        <div className="mt-14 pt-4">
-          <div className="mx-auto max-w-4xl grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center sm:text-left justify-items-center sm:justify-items-stretch">
-            {trustHighlights.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex items-center gap-3.5 justify-center sm:justify-start"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100/80 text-slate-800">
-                    <Icon size={22} strokeWidth={1.8} />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-slate-500 font-normal mt-0.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                type="button"
+                onClick={nextSlide}
+                aria-label="Next plan"
+                className="h-8 w-8 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-slate-900 shadow-2xs cursor-pointer"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* ═══════════════════════════════════════════════════════════
+            MOBILE / TABLET CAROUSEL VIEW (< lg)
+        ═══════════════════════════════════════════════════════════ */}
+        <div className="lg:hidden mb-10">
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+          >
+            {allServices.map((plan) => (
+              <PricingCard key={`mobile-${plan.id}`} plan={plan} isCarousel={true} />
+            ))}
+          </div>
+
+          {/* PAGINATION DOTS */}
+          <div className="flex justify-center items-center gap-2 mt-3">
+            {allServices.map((plan, idx) => (
+              <button
+                key={`dot-${plan.id}`}
+                type="button"
+                onClick={() => scrollToSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all cursor-pointer ${
+                  activeSlide === idx
+                    ? "w-7 bg-[#EA580C]"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════
+            DESKTOP GRID VIEW (lg and above)
+        ═══════════════════════════════════════════════════════════ */}
+        <div className="hidden lg:block mb-12">
+          {/* TOP 3 PRIMARY SERVICES */}
+          <div className="grid grid-cols-3 gap-6 items-stretch mb-6">
+            {allServices.slice(0, 3).map((plan) => (
+              <PricingCard key={`desktop-${plan.id}`} plan={plan} />
+            ))}
+          </div>
+
+          {/* BOTTOM 2 SPECIALIZED SERVICES */}
+          <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
+            {allServices.slice(3, 5).map((plan) => (
+              <PricingCard key={`desktop-${plan.id}`} plan={plan} />
+            ))}
+          </div>
+        </div>
+
+        {/* ADDITIONAL SERVICES STRIP */}
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
+          <h4 className="text-xs font-black uppercase tracking-wider text-slate-400 mb-4">
+            Additional Travel & Documentation Services
+          </h4>
+
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+            {additionalServices.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-100 bg-[#F8FAFC] p-4 transition hover:border-slate-200"
+              >
+                <h5 className="text-xs font-black text-slate-900 mb-1">{item.title}</h5>
+                <p className="text-[11px] text-slate-500 mb-2">{item.desc}</p>
+                <div className="flex items-center justify-between pt-1 border-t border-slate-200/60">
+                  <span className="text-xs font-extrabold text-[#EA580C]">{item.price}</span>
+                  <Link to={item.href} className="text-[11px] font-bold text-slate-600 hover:underline">
+                    Inquire →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

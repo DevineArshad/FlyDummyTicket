@@ -1,44 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-handwriting: "Caveat", cursive;
 
-  /* Brand Colors */
-  --color-brand-navy: #14213D;
-  --color-brand-blue: #2563EB;
-  --color-brand-blue-dark: #1D4ED8;
-  --color-brand-blue-light: #EFF6FF;
+  /* Theme Colors: Aviation Orange & Deep Charcoal inspired by dummyticket.com */
+  --color-brand-orange: #E6582A;
+  --color-brand-orange-dark: #C9441B;
+  --color-brand-orange-light: #FFF7ED;
+  --color-brand-orange-hover: #D84F23;
+  --color-brand-amber: #F59E0B;
 
-  /* Accent Colors */
-  --color-success: #16A34A;
-  --color-success-light: #F0FDF4;
-  --color-gold: #F59E0B;
+  /* Deep Base Contrast */
+  --color-brand-navy: #0F172A;
+  --color-brand-dark: #1E293B;
+  --color-brand-slate: #334155;
 
-  /* Surfaces */
+  /* Verification & Trust */
+  --color-brand-green: #10B981;
+  --color-brand-green-dark: #059669;
+  --color-brand-green-light: #ECFDF5;
+
+  /* Surfaces & Page */
   --color-page: #F8FAFC;
   --color-surface: #FFFFFF;
   --color-surface-soft: #F1F5F9;
 
-  /* Text */
+  /* Typography */
   --color-heading: #0F172A;
-  --color-body: #64748B;
+  --color-body: #475569;
   --color-muted: #94A3B8;
 
   /* Borders */
   --color-border: #E2E8F0;
   --color-border-dark: #CBD5E1;
-
-  /* Radius */
-  --radius-button: 0.75rem;
-  --radius-input: 0.75rem;
-  --radius-card: 1.25rem;
-
-  /* Shadows */
-  --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.06);
-  --shadow-card-hover: 0 12px 32px rgba(15, 23, 42, 0.10);
-  --shadow-floating: 0 20px 60px rgba(15, 23, 42, 0.12);
 }
 
 @layer base {
@@ -48,14 +43,16 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     margin: 0;
     min-width: 320px;
-    background: #F8FAFC;
+    overflow-x: hidden;
+    background: #FFFFFF;
     color: #0F172A;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   button,
@@ -70,34 +67,37 @@
   }
 }
 
-.font-handwriting {
-  font-family: "Caveat", cursive, sans-serif !important;
+/* Custom Minimalist Shadows */
+.shadow-subtle {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
-/* Services Dropdown Hover & Active Styles */
-.services-nav-group:hover .services-dropdown-menu,
-.services-dropdown-menu.is-open {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
+.shadow-card-clean {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
 }
 
-.services-dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-6px);
-  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s ease;
+.shadow-orange-glow {
+  box-shadow: 0 10px 25px -3px rgba(230, 88, 42, 0.3), 0 4px 6px -2px rgba(230, 88, 42, 0.15);
 }
 
-.services-nav-group:hover .services-chevron,
-.services-chevron.is-open {
-  transform: rotate(180deg) !important;
-  color: #2563EB !important;
+/* Cross-Browser Scrollbar Hiding & Smooth Touch Scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* iOS Momentum Scrolling */
 }
 
-.services-nav-group:hover .services-nav-button,
-.services-nav-button.is-open {
-  color: #2563EB !important;
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Mobile Safe Bottom Padding to accommodate floating action widgets */
+.pb-safe-fab {
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  .pb-safe-fab {
+    padding-bottom: 3rem;
+  }
 }
