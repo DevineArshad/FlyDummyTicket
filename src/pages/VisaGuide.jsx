@@ -1,128 +1,107 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight,
   Check,
   CheckCircle2,
   ChevronRight,
   FileCheck2,
-  Globe,
-  Info,
-  Plane,
-  ShieldCheck,
-  Zap,
 } from "lucide-react";
 
 const countryRequirements = [
   {
-    id: "schengen",
-    flag: "🇪🇺",
-    title: "Schengen Visa (29 European Countries)",
-    countries: "France, Germany, Italy, Switzerland, Spain, Netherlands, Greece, etc.",
-    clause: "Article 14(1)(b) of the Schengen Visa Code",
-    details:
-      "The Schengen Visa Code states that applicants must provide proof of means of transport (flight itinerary with confirmed return) and proof of accommodation (hotel voucher) for all nights spent in the Schengen territory. Embassies explicitly recommend submitting flight reservations rather than fully paid non-refundable tickets.",
-    requirementList: [
-      "Round-trip flight reservation showing entry and exit points",
-      "Valid airline PNR verifiable online",
-      "Confirmed hotel voucher matching arrival and departure dates",
-      "Matching traveler name exactly as in passport",
-    ],
-  },
-  {
-    id: "uk",
-    flag: "🇬🇧",
-    title: "United Kingdom (Standard Visitor Visa)",
-    countries: "England, Scotland, Wales, Northern Ireland",
-    clause: "UKVI Official Application Guidance",
-    details:
-      "UK Visas and Immigration (UKVI) officially warns applicants: 'You do not need to buy travel tickets before you make an application. We strongly advise that you do not buy tickets or pay for accommodation until you get your visa.' A verifiable travel itinerary satisfies this requirement perfectly.",
-    requirementList: [
-      "Detailed flight itinerary showing proposed travel dates",
-      "Valid return or onward flight booking",
-      "Hotel reservation or host accommodation address",
-      "Consistent timeline with your employment leave approval",
-    ],
-  },
-  {
-    id: "us",
-    flag: "🇺🇸",
-    title: "United States (B1 / B2 Tourist Visa)",
-    countries: "All 50 US States and Territories",
-    clause: "US Department of State Travel Guidelines",
-    details:
-      "For US visa interviews, consular officers assess your intent to return to your home country. Having a tentative round-trip flight reservation and hotel plan shows planned travel without risking money on non-refundable tickets before visa approval.",
-    requirementList: [
-      "Flight itinerary with proposed port of entry (e.g. JFK, LAX, SFO)",
-      "Confirmed hotel reservation voucher for initial stay",
-      "Estimated dates matching Form DS-160 information",
-      "Clear proof of scheduled return journey",
-    ],
-  },
-  {
-    id: "canada",
-    flag: "🇨🇦",
-    title: "Canada (Temporary Resident Visa / Visitor)",
-    countries: "Provinces & Territories across Canada",
-    clause: "IRCC (Immigration, Refugees and Citizenship Canada)",
-    details:
-      "IRCC requires a flight itinerary showing dates and airline details to understand your travel timeframe. Fully paid non-refundable tickets are discouraged before receiving your passport request.",
-    requirementList: [
-      "Flight itinerary with booking reference number",
-      "Hotel reservation voucher covering duration of stay",
-      "Detailed travel itinerary/day-by-day plan",
-    ],
-  },
-  {
-    id: "australia",
-    flag: "🇦🇺",
-    title: "Australia (Visitor Subclass 600)",
-    countries: "All Australian States & Territories",
-    clause: "Department of Home Affairs Official Guidance",
-    details:
-      "Australian immigration requires proof of intent to return home after your visit. Having a tentative, verifiable flight itinerary and confirmed accommodation plan proves your intended travel dates without purchasing non-refundable air tickets.",
-    requirementList: [
-      "Round-trip flight reservation showing proposed entry & exit dates",
-      "Valid airline PNR verifiable on airline booking engine",
-      "Hotel reservation or host address covering duration of stay",
-      "Matching personal details as submitted in ImmiAccount",
-    ],
-  },
-  {
     id: "dubai",
     flag: "🇦🇪",
-    name: "Dubai & United Arab Emirates",
-    title: "Dubai & UAE (30/60 Days Tourist & Transit Visa)",
-    countries: "Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah",
-    clause: "GDRFA & Airline Ok To Board (OTB) Mandate",
+    title: "United Arab Emirates (Dubai & Abu Dhabi)",
+    countries: "Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah",
+    clause: "GDRFA, ICP & Airline Ok To Board (OTB) Mandate",
     details:
-      "Airlines flying to the UAE (Emirates, flydubai, Air India Express, IndiGo) require passengers to have a confirmed return or onward flight ticket and Ok To Board clearance. Without a valid return reservation, airline counters will deny boarding.",
+      "Airlines flying to the UAE (Emirates, flydubai, Air Arabia, IndiGo, Air India Express) mandate that all passengers holding 30-day, 60-day tourist visas, or transit visas hold a confirmed return or onward flight ticket and valid Ok To Board (OTB) clearance. Without an active return booking, airport check-in counters will refuse boarding.",
     requirementList: [
-      "Confirmed onward or return ticket for airport counter check-in",
-      "Ok To Board (OTB) clearance updated in airline reservation",
-      "Hotel booking voucher for UAE immigration counter verification",
-      "Immediate delivery to WhatsApp for airport urgency",
+      "Confirmed round-trip or onward airline reservation with live PNR",
+      "Valid Ok To Board (OTB) airline reservation update",
+      "Confirmed hotel booking voucher matching your planned duration of stay",
+      "Instant WhatsApp delivery for last-minute airport boarding verification",
     ],
   },
   {
-    id: "student",
-    flag: "🎓",
-    title: "International Student Visas",
-    countries: "USA (F-1), UK (Student Route), Canada (Study Permit), Australia (500)",
-    clause: "Global University & Consular Student Regulations",
+    id: "saudi",
+    flag: "🇸🇦",
+    title: "Saudi Arabia (Tourist, Umrah & Business)",
+    countries: "Riyadh, Jeddah, Makkah, Madinah, Dammam, Al-Ula",
+    clause: "Saudi MOFA, Nusuk & Muqeem Portal Requirements",
     details:
-      "Consulates and visa processing centers require students to provide tentative travel timelines aligned with course commencement dates. Our flexible student reservations include free date rescheduling if your visa decision is delayed.",
+      "The Saudi Ministry of Foreign Affairs (MOFA) and Nusuk pilgrimage portal require tourist eVisa holders, Umrah pilgrims, and commercial visitors to hold confirmed return flight tickets and verified hotel accommodations before traveling. Immigration officers at JED and RUH airports verify exit bookings upon arrival.",
     requirementList: [
-      "One-way or round-trip flight reservation dated prior to course start",
-      "Includes valid airline PNR verifiable online",
-      "100% Free date change if visa or CAS/I-20 issuance is delayed",
-      "Hotel voucher or student housing reservation for initial arrival",
+      "Round-trip flight booking with active 6-digit PNR verifiable on airline website",
+      "Hotel reservation voucher in Makkah, Madinah, or destination city",
+      "Dates perfectly synchronized with your proposed visa period",
+      "Free date changes if your Umrah or business meetings get rescheduled",
+    ],
+  },
+  {
+    id: "qatar",
+    flag: "🇶🇦",
+    title: "Qatar (Hayya Entry & Transit Visa)",
+    countries: "Doha, Al Wakrah, Al Rayyan, Hamad International Airport (DOH)",
+    clause: "Qatar MOI & Hayya Portal Regulations",
+    details:
+      "Under Qatar Ministry of Interior regulations and the Hayya Portal, international visitors must possess a valid return flight ticket back to their home country or onward destination, alongside hotel accommodation booking, before obtaining entry clearance at Hamad International Airport.",
+    requirementList: [
+      "Confirmed return flight itinerary checkable on Qatar Airways or partner airlines",
+      "Hotel booking voucher covering the declared duration in Qatar",
+      "Passport details and full name matching Hayya application exactly",
+      "Accepted by Qatar Visa Centers (QVC) and immigration counters",
+    ],
+  },
+  {
+    id: "oman",
+    flag: "🇴🇲",
+    title: "Oman (Tourist eVisa 26A / 26B)",
+    countries: "Muscat, Salalah, Sohar, Nizwa, Khasab",
+    clause: "Royal Oman Police (ROP) eVisa Guidelines",
+    details:
+      "Royal Oman Police (ROP) specifies that tourists and GCC residents applying for eVisas must upload a confirmed round-trip flight booking and hotel reservation. Airline counters also inspect return itineraries before boarding passengers traveling to Muscat or Salalah.",
+    requirementList: [
+      "Confirmed return or onward air ticket with valid booking reference",
+      "Hotel booking voucher for Muscat or intended stay cities",
+      "Clear itinerary timeline complying with 10-day or 30-day visa validity",
+      "100% Free date change if your visa grant takes longer than expected",
+    ],
+  },
+  {
+    id: "kuwait",
+    flag: "🇰🇼",
+    title: "Kuwait (Tourist eVisa & Commercial)",
+    countries: "Kuwait City, Hawalli, Al Ahmadi, Farwaniya",
+    clause: "Kuwait Ministry of Interior (MOI) Mandate",
+    details:
+      "Kuwait MOI mandates that foreign visitors entering Kuwait on tourist e-visas or commercial visit visas present a confirmed return airline ticket and registered hotel voucher. Airlines flying to Kuwait International Airport (KWI) enforce strict boarding controls.",
+    requirementList: [
+      "Return flight reservation with verifiable PNR on Kuwait Airways, Jazeera, etc.",
+      "Hotel accommodation voucher covering the duration of stay",
+      "Full passenger name matching passport biographical page",
+      "Delivered in 10 to 30 minutes in IATA format with printable barcode",
+    ],
+  },
+  {
+    id: "bahrain",
+    flag: "🇧🇭",
+    title: "Bahrain (Tourist eVisa & On-Arrival)",
+    countries: "Manama, Muharraq, Riffa, Bahrain International Airport (BAH)",
+    clause: "Bahrain NPRA Visa Guidelines",
+    details:
+      "Bahrain Nationality, Passports and Residence Affairs (NPRA) requires visa applicants to submit confirmed return flight itineraries and verified hotel accommodations. Boarding on one-way tickets without return proof is strictly prohibited by Gulf Air and regional carriers.",
+    requirementList: [
+      "Confirmed round-trip airline reservation verifiable online",
+      "Confirmed hotel reservation voucher in Manama or surrounding areas",
+      "Meets NPRA online eVisa application documentary requirements",
+      "Rapid PDF delivery to WhatsApp and email with free date revisions",
     ],
   },
 ];
 
 function VisaGuide() {
-  const [activeTab, setActiveTab] = useState("schengen");
+  const [activeTab, setActiveTab] = useState("dubai");
   const selectedGuide =
     countryRequirements.find((c) => c.id === activeTab) || countryRequirements[0];
 
@@ -135,26 +114,26 @@ function VisaGuide() {
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
-          <span className="font-bold text-[#E6582A]">Visa & Embassy Guidance</span>
+          <span className="font-bold text-[#E6582A]">Gulf Visa Itinerary Guide</span>
         </nav>
 
         {/* Page Header */}
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#E6582A] shadow-xs">
             <FileCheck2 size={13} className="text-[#E6582A]" />
-            <span>GLOBAL EMBASSY COMPLIANCE</span>
+            <span>GULF & GCC VISA COMPLIANCE</span>
           </div>
 
           <h1 className="mt-3.5 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-[44px] lg:leading-[1.15]">
-            Embassy Flight & Hotel <span className="text-[#E6582A]">Requirements</span>
+            Gulf Countries Flight & Hotel <span className="text-[#E6582A]">Requirements</span>
           </h1>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600">
-            Learn what global embassies, VFS Global, and consulates officially require regarding flight reservations and hotel bookings for visa applications.
+            Learn what Gulf embassies, GDRFA, Saudi MOFA, Hayya, and regional airlines require regarding flight reservations, hotel vouchers, and Ok To Board (OTB) clearance.
           </p>
         </div>
 
-        {/* Country Tabs */}
+        {/* Country Tabs (6 Gulf Countries) */}
         <div className="mt-8 flex overflow-x-auto no-scrollbar gap-2 border-b border-slate-200 pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
           {countryRequirements.map((country) => (
             <button
@@ -213,7 +192,7 @@ function VisaGuide() {
           {/* Action Row */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-100">
             <p className="text-xs text-slate-500">
-              Need these documents for your upcoming visa appointment?
+              Need these documents for your upcoming Gulf visa or airport check-in?
             </p>
             <div className="flex gap-3 w-full sm:w-auto">
               <Link

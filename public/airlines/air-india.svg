@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <!-- Flying Swan Sunburst Emblem -->
+  <g transform="translate(12, 10)">
+    <circle cx="15" cy="15" r="14" fill="#D0021B"/>
+    <circle cx="15" cy="15" r="11" fill="#FFB81C"/>
+    <circle cx="15" cy="15" r="8" fill="#D0021B"/>
+    <!-- Stylized Swan -->
+    <path d="M10 20l5-8 7-4-3 3-5 3 6 0 4-2-2 3-5 3 5 2-6-1-5 2z" fill="#FFFFFF"/>
+  </g>
+  <!-- Air India Wordmark -->
+  <text x="50" y="27" font-family="'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="13" fill="#D0021B" letter-spacing="1">AIR INDIA</text>
+  <text x="51" y="38" font-family="'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="8" fill="#B91C1C" letter-spacing="1.5">एअर इंडिया</text>
+</svg>

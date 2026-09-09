@@ -63,7 +63,7 @@ function AboutDummyTicket() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 mb-6">
               <li className="flex items-start gap-2.5">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[#E6582A] font-black text-xs mt-0.5">✓</span>
-                <span><strong>Visa applications:</strong> Schengen, US, UK, Canada, Australia, Singapore & more</span>
+                <span><strong>Gulf visa applications:</strong> UAE / Dubai, Saudi Arabia (Umrah/Tourist), Qatar, Oman, Kuwait & Bahrain</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[#E6582A] font-black text-xs mt-0.5">✓</span>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <!-- AIRFRANCE Typography -->
+  <text x="14" y="32" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="16" fill="#002157" letter-spacing="1">AIRFRANCE</text>
+  <!-- Iconic Red Accent Ribbon -->
+  <path d="M136 12l-6 26h8l6-26h-8z" fill="#ED1C24"/>
+</svg>

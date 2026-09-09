@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="180" height="50">
+  <rect width="180" height="50" rx="8" fill="#C70827"/>
+  <!-- Wild Goose in Red Circle -->
+  <g transform="translate(14, 9)">
+    <circle cx="16" cy="16" r="14" fill="#FFFFFF"/>
+    <circle cx="16" cy="16" r="12" fill="#C70827"/>
+    <!-- Stylized Wild Goose / Bird silhouette -->
+    <path d="M8 22l6-4 10-9-3 6-5 4 7 0 4-3-3 5-6 3 4 3-5-1-6 2z" fill="#FFFFFF"/>
+  </g>
+  <!-- Turkish Airlines Text -->
+  <text x="54" y="24" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="12" fill="#FFFFFF" letter-spacing="1.5">TURKISH</text>
+  <text x="54" y="37" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="10" fill="#F8FAFC" letter-spacing="2">AIRLINES</text>
+</svg>

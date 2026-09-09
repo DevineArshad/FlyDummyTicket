@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#00A1DE"/>
+  <!-- KLM Royal Crown -->
+  <g transform="translate(18, 12)">
+    <!-- 4 Crown Spheres -->
+    <circle cx="3" cy="4" r="2.2" fill="#FFFFFF"/>
+    <circle cx="10" cy="2" r="2.2" fill="#FFFFFF"/>
+    <circle cx="17" cy="2" r="2.2" fill="#FFFFFF"/>
+    <circle cx="24" cy="4" r="2.2" fill="#FFFFFF"/>
+    <!-- Cross on top of arch -->
+    <path d="M13.5 0h1v4h-1zM12 1.5h4v1h-4z" fill="#FFFFFF"/>
+    <!-- Crown Base -->
+    <path d="M2 9l2 8h19l2-8-5 3-6-4-6 4z" fill="#FFFFFF"/>
+    <rect x="3" y="19" width="21" height="2.5" rx="1" fill="#FFFFFF"/>
+  </g>
+  <!-- KLM Bold Wordmark -->
+  <text x="56" y="34" font-family="'Arial Black', 'Segoe UI', Impact, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="1">KLM</text>
+</svg>

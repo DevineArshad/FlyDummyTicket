@@ -3,14 +3,14 @@ import { ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is a dummy flight ticket legally accepted by embassies for visa applications?",
+    question: "Is a dummy flight ticket legally accepted for Gulf country visa applications?",
     answer:
-      "Yes. Most embassies (including Schengen, US, UK, Canada, Australia, and New Zealand) explicitly state in their official visa guidelines that applicants should provide a flight reservation or itinerary rather than purchasing expensive, non-refundable flight tickets before their visa is granted.",
+      "Yes. Gulf embassies, consular sections, and immigration portals (including UAE GDRFA, Saudi MOFA & Nusuk, Qatar Hayya, Oman ROP, Kuwait MOI, and Bahrain NPRA) accept verifiable flight reservations and hotel vouchers rather than requiring expensive, non-refundable tickets before your visa is approved.",
   },
   {
     question: "Can I verify the booking reference (PNR) directly on the airline website?",
     answer:
-      "Yes. Every ticket we issue comes with an authentic 6-digit PNR code. You can go to the operating airline's official website (such as Emirates, Qatar Airways, Lufthansa, Singapore Airlines, or Air India), go to 'Manage Booking' or 'My Trips', enter your surname and PNR, and view your active flight reservation.",
+      "Yes. Every ticket we issue comes with an authentic 6-digit PNR code. You can go to the operating airline's official website (such as Emirates, Qatar Airways, Lufthansa, Singapore Airlines, British Airways, Air France, Air India, KLM, or Turkish Airlines), go to 'Manage Booking' or 'My Trips', enter your surname and PNR, and view your active flight reservation.",
   },
   {
     question: "How long will the dummy ticket remain valid?",
@@ -28,9 +28,9 @@ const faqs = [
       "Our processing is rapid: your official IATA-standard PDF ticket is delivered directly to your WhatsApp and Email address within 10 to 30 minutes of order confirmation.",
   },
   {
-    question: "Can I use this ticket as proof of return / onward travel at airport check-in?",
+    question: "Can I use this ticket as proof of return / onward travel for Gulf airports & Ok To Board (OTB)?",
     answer:
-      "Yes. If you are traveling on a one-way ticket to destinations like Dubai, Thailand, Singapore, or Bali, airlines require proof of onward journey before boarding. Our Return Ticket satisfies airport check-in agents and border immigration.",
+      "Yes. If you are traveling on a one-way or tourist visa to Dubai, Abu Dhabi, Jeddah, Riyadh, Doha, Muscat, Kuwait, or Bahrain, airlines strictly require confirmed proof of onward/return travel before issuing boarding passes. Our Return Ticket satisfies airport check-in agents, Ok To Board (OTB) mandates, and border immigration.",
   },
 ];
 

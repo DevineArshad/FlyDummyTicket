@@ -20,18 +20,28 @@ import {
 } from "lucide-react";
 
 const airportsList = [
-  { code: "DEL", city: "New Delhi", label: "New Delhi (DEL)" },
-  { code: "CDG", city: "Paris", label: "Paris (CDG)" },
-  { code: "LHR", city: "London", label: "London Heathrow (LHR)" },
-  { code: "JFK", city: "New York", label: "New York (JFK)" },
-  { code: "DXB", city: "Dubai", label: "Dubai (DXB)" },
-  { code: "FCO", city: "Rome", label: "Rome (FCO)" },
-  { code: "SIN", city: "Singapore", label: "Singapore (SIN)" },
-  { code: "BOM", city: "Mumbai", label: "Mumbai (BOM)" },
-  { code: "BLR", city: "Bengaluru", label: "Bengaluru (BLR)" },
-  { code: "BKK", city: "Bangkok", label: "Bangkok (BKK)" },
-  { code: "FRA", city: "Frankfurt", label: "Frankfurt (FRA)" },
-  { code: "SYD", city: "Sydney", label: "Sydney (SYD)" },
+  // Major Gulf Destinations
+  { code: "DXB", city: "Dubai", label: "Dubai, UAE (DXB)" },
+  { code: "AUH", city: "Abu Dhabi", label: "Abu Dhabi, UAE (AUH)" },
+  { code: "SHJ", city: "Sharjah", label: "Sharjah, UAE (SHJ)" },
+  { code: "JED", city: "Jeddah", label: "Jeddah / Makkah, KSA (JED)" },
+  { code: "RUH", city: "Riyadh", label: "Riyadh, KSA (RUH)" },
+  { code: "MED", city: "Madinah", label: "Madinah, KSA (MED)" },
+  { code: "DOH", city: "Doha", label: "Doha, Qatar (DOH)" },
+  { code: "MCT", city: "Muscat", label: "Muscat, Oman (MCT)" },
+  { code: "KWI", city: "Kuwait City", label: "Kuwait City, Kuwait (KWI)" },
+  { code: "BAH", city: "Manama", label: "Manama, Bahrain (BAH)" },
+  // Major Departure Cities
+  { code: "DEL", city: "New Delhi", label: "New Delhi, India (DEL)" },
+  { code: "BOM", city: "Mumbai", label: "Mumbai, India (BOM)" },
+  { code: "CCJ", city: "Kozhikode", label: "Kozhikode / Calicut, India (CCJ)" },
+  { code: "COK", city: "Kochi", label: "Kochi, India (COK)" },
+  { code: "HYD", city: "Hyderabad", label: "Hyderabad, India (HYD)" },
+  { code: "LHE", city: "Lahore", label: "Lahore, Pakistan (LHE)" },
+  { code: "ISB", city: "Islamabad", label: "Islamabad, Pakistan (ISB)" },
+  { code: "DAC", city: "Dhaka", label: "Dhaka, Bangladesh (DAC)" },
+  { code: "KTM", city: "Kathmandu", label: "Kathmandu, Nepal (KTM)" },
+  { code: "CMB", city: "Colombo", label: "Colombo, Sri Lanka (CMB)" },
 ];
 
 const serviceConfig = {
@@ -94,7 +104,7 @@ function Hero() {
   const [activeTab, setActiveTab] = useState("flight");
   const [tripType, setTripType] = useState("round-trip");
   const [origin, setOrigin] = useState("DEL");
-  const [destination, setDestination] = useState("CDG");
+  const [destination, setDestination] = useState("DXB");
   const [departureDate, setDepartureDate] = useState("2026-10-18");
   const [returnDate, setReturnDate] = useState("2026-10-28");
   const [passengerName, setPassengerName] = useState("MR. ALEX KUMAR");
@@ -147,16 +157,16 @@ function Hero() {
             {/* VALUE PROPOSITION BADGE */}
             <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-[#E6582A] shadow-2xs max-w-full">
               <ShieldCheck size={14} className="text-[#E6582A] shrink-0" />
-              <span className="truncate">Verifiable Dummy Tickets starting at just ₹299</span>
+              <span className="truncate">Verifiable Gulf Dummy Tickets starting at just ₹299</span>
             </div>
 
             {/* MAIN HEADLINE */}
             <div>
               <h1 className="text-2xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 leading-[1.18] break-words">
-                Get Your Dummy Ticket with <span className="text-[#E6582A]">Verifiable PNR</span>
+                Get Your Gulf Dummy Ticket with <span className="text-[#E6582A]">Verifiable PNR</span>
               </h1>
               <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-slate-600 font-medium leading-relaxed">
-                Genuine airline flight reservations, hotel vouchers & travel insurance for visa applications, proof of return at immigration & passport renewals. Delivered in 10 to 30 minutes.
+                Genuine airline flight reservations, hotel vouchers & travel insurance for UAE, Saudi Arabia, Qatar, Oman, Kuwait & Bahrain visa applications, Ok-To-Board (OTB) clearance & airport proof of return. Delivered in 10 to 30 minutes.
               </p>
             </div>
 
@@ -168,7 +178,7 @@ function Hero() {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white p-2 sm:p-2.5 border border-slate-200/80 shadow-2xs min-w-0">
                 <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-                <span className="leading-tight truncate">100% Embassy Approved</span>
+                <span className="leading-tight truncate">100% Gulf Embassy Approved</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white p-2 sm:p-2.5 border border-slate-200/80 shadow-2xs min-w-0">
                 <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />

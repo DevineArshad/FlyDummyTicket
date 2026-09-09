@@ -130,7 +130,7 @@ function QuickContactSection() {
                         type="text"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder="e.g. Schengen Visa France, 2 PAX"
+                        placeholder="e.g. Dubai UAE Tourist Visa, 2 PAX"
                         className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-900 outline-none focus:border-[#EA580C] focus:ring-2 focus:ring-orange-100 transition"
                       />
                     </div>
