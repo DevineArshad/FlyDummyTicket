@@ -16,7 +16,7 @@ function Footer() {
       {/* MAIN FOOTER CONTENT */}
       <div className="mx-auto max-w-7xl px-4 pt-12 pb-24 sm:pb-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          
+
           {/* COL 1: BRAND INFO */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
@@ -159,8 +159,8 @@ function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={13} className="text-[#E6582A] shrink-0" />
-                <a href="mailto:support@flydummyticket.com" className="hover:text-white transition">
-                  support@flydummyticket.com
+                <a href="mailto:flydummyticket@gmail.com" className="hover:text-white transition">
+                  flydummyticket@gmail.com
                 </a>
               </div>
               <div className="pt-2 text-[11px] text-slate-500 border-t border-slate-800/80">

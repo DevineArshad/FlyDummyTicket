@@ -34,7 +34,7 @@ function DateChange() {
     `• Reason / Notes: ${form.notes || "Embassy date shifted"}`;
 
   const whatsappRescheduleUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedReschedule)}`;
-  const emailRescheduleUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
+  const emailRescheduleUrl = `mailto:flydummyticket@gmail.com?subject=${encodeURIComponent(
     `Free Date Change Request - ${form.bookingRef} - ${form.fullName}`
   )}&body=${encodeURIComponent(formattedReschedule)}`;
 

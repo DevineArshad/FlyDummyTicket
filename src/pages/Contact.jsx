@@ -44,7 +44,7 @@ function Contact() {
     `• Message: ${formData.message}`;
 
   const inquiryWhatsAppUrl = `https://wa.me/919560099481?text=${encodeURIComponent(formattedMessage)}`;
-  const inquiryMailToUrl = `mailto:support@flydummyticket.com?subject=${encodeURIComponent(
+  const inquiryMailToUrl = `mailto:flydummyticket@gmail.com?subject=${encodeURIComponent(
     `Inquiry from ${formData.name} - ${serviceLabels[formData.service] || formData.service}`
   )}&body=${encodeURIComponent(formattedMessage)}`;
 
@@ -133,7 +133,7 @@ function Contact() {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase text-slate-400">Email Support</span>
-                  <p className="font-semibold text-slate-800 break-all">support@flydummyticket.com</p>
+                  <p className="font-semibold text-slate-800 break-all">flydummyticket@gmail.com</p>
                   <span className="text-[11px] text-slate-400">Replies within 1 hour</span>
                 </div>
               </div>
