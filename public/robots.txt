@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Google Search Console & Sitemaps
+Sitemap: https://flydummyticket.com/sitemap.xml
+Host: https://flydummyticket.com
