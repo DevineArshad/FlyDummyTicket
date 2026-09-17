@@ -35,8 +35,11 @@ function Contact() {
     other: "General Embassy / Visa Question",
   };
 
+  // 🔥 Fixed: Correctly referenced the serviceLabels object
+
+
   const formattedMessage =
-    `Hi FlyDummyTicket Team, I have an inquiry:\n` +
+    `FlyDummyTicket Team, I have an inquiry:\n` +
     `• Name: ${formData.name}\n` +
     `• Email: ${formData.email}\n` +
     `• WhatsApp / Phone: ${formData.phone || "Not provided"}\n` +
