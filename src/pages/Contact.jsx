@@ -39,7 +39,7 @@ function Contact() {
 
 
   const formattedMessage =
-    `FlyDummyTicket Team, I have an inquiry:\n` +
+    `Hi FlyDummyTicket Team, I have an inquiry:\n` +
     `• Name: ${formData.name}\n` +
     `• Email: ${formData.email}\n` +
     `• WhatsApp / Phone: ${formData.phone || "Not provided"}\n` +
