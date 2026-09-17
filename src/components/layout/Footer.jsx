@@ -5,7 +5,6 @@ import {
   Mail,
   MessageCircle,
   Phone,
-  Plane,
   ShieldCheck,
   Zap,
 } from "lucide-react";
@@ -19,13 +18,12 @@ function Footer() {
 
           {/* COL 1: BRAND INFO */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#E6582A] text-white">
-                <Plane size={18} className="rotate-[-45deg]" />
-              </div>
-              <span className="font-black text-lg tracking-tight text-white">
-                FLY<span className="text-[#E6582A]">DUMMY</span>TICKET
-              </span>
+            <Link to="/" className="inline-block">
+              <img
+                src="/logo-white.png"
+                alt="FlyDummyTicket - Travel Plans For A Bigger Tomorrow"
+                className="h-10 sm:h-11 w-auto max-w-[210px] sm:max-w-[230px] object-contain"
+              />
             </Link>
 
             <p className="text-xs leading-relaxed text-slate-400">

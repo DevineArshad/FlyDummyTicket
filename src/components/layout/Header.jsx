@@ -142,20 +142,13 @@ function Header() {
           <Link
             to="/"
             onClick={closeMenus}
-            className="flex items-center gap-2 shrink-0 min-w-0"
+            className="flex items-center shrink-0 min-w-0"
           >
-            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-[#E6582A] text-white shadow-sm shadow-[#E6582A]/30 shrink-0">
-              <Plane size={18} className="rotate-[-45deg] sm:hidden" />
-              <Plane size={20} className="rotate-[-45deg] hidden sm:block" />
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="font-black text-base sm:text-lg tracking-tight text-slate-900 leading-tight">
-                FLY<span className="text-[#E6582A]">DUMMY</span>TICKET
-              </span>
-              <span className="text-[8px] sm:text-[9px] font-bold text-slate-400 tracking-wider uppercase -mt-0.5 truncate hidden min-[360px]:block">
-                Original tickets • Verifiable PNR
-              </span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="FlyDummyTicket - Travel Plans For A Bigger Tomorrow"
+              className="h-10 sm:h-11 md:h-12 w-auto max-w-[210px] sm:max-w-[250px] object-contain"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
