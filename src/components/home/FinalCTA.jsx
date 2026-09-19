@@ -39,7 +39,7 @@ function FinalCTA() {
 
             {/* HEADLINE */}
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight leading-tight text-white">
-              Ready to Get Your Embassy-Approved <br className="hidden sm:inline" />
+              Ready to Get Your Verifiable <br className="hidden sm:inline" />
               <span className="text-[#EA580C]">Dummy Ticket</span> Today?
             </h2>
 

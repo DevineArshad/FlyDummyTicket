@@ -6,7 +6,7 @@ function DummyFlightTicket() {
       serviceType="flight"
       serviceTitle="Dummy Flight Ticket for Visa"
       price="₹299"
-      badge="100% Embassy Approved • Verifiable PNR"
+      badge="Verifiable Airline PNR • Live Reservation"
       description="Official IATA airline reservation with live 6-character PNR. Checkable directly on the operating airline's website under Manage Booking. Delivered within 10 to 30 minutes."
       features={[
         "Checkable on official airline websites (Emirates, Qatar, Lufthansa, etc.)",

@@ -178,7 +178,7 @@ function Hero() {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white p-2 sm:p-2.5 border border-slate-200/80 shadow-2xs min-w-0">
                 <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-                <span className="leading-tight truncate">100% Gulf Embassy Approved</span>
+                <span className="leading-tight truncate">Gulf Visa Compliant</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white p-2 sm:p-2.5 border border-slate-200/80 shadow-2xs min-w-0">
                 <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />

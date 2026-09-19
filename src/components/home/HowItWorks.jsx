@@ -36,7 +36,7 @@ function HowItWorks() {
           </h2>
           <div className="mt-3 mx-auto h-1 w-16 bg-[#E6582A] rounded-full" />
           <p className="mt-3 text-sm text-slate-500 font-medium">
-            Get embassy-approved, checkable travel documentation in minutes without risking thousands on non-refundable tickets.
+            Get verifiable, airline-checkable travel documentation in minutes without risking thousands on non-refundable tickets.
           </p>
         </div>
 

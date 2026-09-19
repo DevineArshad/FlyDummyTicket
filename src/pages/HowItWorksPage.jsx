@@ -163,7 +163,7 @@ function HowItWorksPage() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#E6582A] shadow-xs mb-3">
             <ShieldCheck size={13} className="text-[#E6582A]" />
-            <span>SIMPLE, TRANSPARENT & EMBASSY APPROVED</span>
+            <span>SIMPLE, TRANSPARENT & AIRLINE VERIFIABLE</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 leading-[1.15]">

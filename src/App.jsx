@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -53,6 +54,10 @@ function App() {
           {/* Guide & Informational Pages */}
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/visa-guide" element={<VisaGuide />} />
+          <Route
+            path="/services/visa-guide"
+            element={<Navigate to="/visa-guide" replace />}
+          />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
@@ -62,8 +67,9 @@ function App() {
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
 
-          {/* Catch-all redirect back to home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* 404 Not Found Handling (Replaces soft-404 home redirects) */}
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
