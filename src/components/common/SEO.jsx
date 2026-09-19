@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const SEO_MAP = {
   "/": {
-    title: "FlyDummyTicket Verifiable Flight & Hotel Reservations for Visa Applications",
+    title: "FlyDummyTicket | Verifiable Flight & Hotel Reservations for Visa Applications",
     description:
       "Get verifiable dummy flight tickets with active airline PNR and confirmed hotel vouchers for Schengen, US, UK, Canada & worldwide visa applications. 10 to 30-minute delivery via WhatsApp.",
     keywords:
