@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   Calendar,
@@ -90,7 +92,7 @@ export default function SharedBookingCard({
         
         {/* BREADCRUMB */}
         <nav className="mb-6 flex items-center gap-2 text-xs text-slate-500 font-semibold">
-          <Link to="/" className="hover:text-[#E6582A] transition">Home</Link>
+          <Link href="/" className="hover:text-[#E6582A] transition">Home</Link>
           <span>/</span>
           <span>Services</span>
           <span>/</span>

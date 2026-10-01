@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   ChevronDown,
@@ -96,6 +98,8 @@ function Header() {
     const el = document.getElementById("booking");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#booking";
     }
   };
 
@@ -140,7 +144,7 @@ function Header() {
           
           {/* BRAND LOGO */}
           <Link
-            to="/"
+            href="/"
             onClick={closeMenus}
             className="flex items-center shrink-0 min-w-0"
           >
@@ -154,7 +158,7 @@ function Header() {
           {/* DESKTOP MENU */}
           <nav className="hidden items-center gap-1 lg:flex">
             <Link
-              to="/"
+              href="/"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               Home
@@ -190,7 +194,7 @@ function Header() {
                         return (
                           <Link
                             key={s.title}
-                            to={s.href}
+                            href={s.href}
                             onClick={closeMenus}
                             className="group flex items-center justify-between rounded-xl p-2.5 hover:bg-orange-50/70 transition"
                           >
@@ -216,35 +220,42 @@ function Header() {
             </div>
 
             <Link
-              to="/pricing"
+              href="/pricing"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               Pricing
             </Link>
 
             <Link
-              to="/how-it-works"
+              href="/how-it-works"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               How It Works
             </Link>
 
             <Link
-              to="/visa-guide"
+              href="/visa-guide"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               Visa Guide
             </Link>
 
             <Link
-              to="/faq"
+              href="/faq"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               FAQs
             </Link>
 
             <Link
-              to="/contact"
+              href="/blog"
+              className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
+            >
+              Blog
+            </Link>
+
+            <Link
+              href="/contact"
               className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#E6582A] transition rounded-lg"
             >
               Contact
@@ -298,7 +309,7 @@ function Header() {
                 {services.map((s) => (
                   <Link
                     key={s.title}
-                    to={s.href}
+                    href={s.href}
                     onClick={closeMenus}
                     className="flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-slate-800 hover:bg-orange-50"
                   >
@@ -314,22 +325,25 @@ function Header() {
                 Navigation
               </p>
               <div className="grid grid-cols-2 gap-1">
-                <Link to="/" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   Home
                 </Link>
-                <Link to="/pricing" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/pricing" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   Pricing
                 </Link>
-                <Link to="/how-it-works" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/how-it-works" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   How It Works
                 </Link>
-                <Link to="/visa-guide" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/visa-guide" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   Visa Guide
                 </Link>
-                <Link to="/faq" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/faq" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   FAQs
                 </Link>
-                <Link to="/contact" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                <Link href="/blog" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
+                  Blog
+                </Link>
+                <Link href="/contact" onClick={closeMenus} className="rounded-xl px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50">
                   Contact
                 </Link>
               </div>

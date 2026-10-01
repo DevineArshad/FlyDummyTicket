@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   BedDouble,
@@ -212,7 +214,7 @@ function PricingCard({ plan, isCarousel = false }) {
         </a>
 
         <Link
-          to={plan.href}
+          href={plan.href}
           className="flex h-9 w-full items-center justify-center text-xs font-bold text-slate-500 hover:text-slate-800"
         >
           <span>More details & requirements</span>
@@ -368,7 +370,7 @@ function Services() {
                 <p className="text-[11px] text-slate-500 mb-2">{item.desc}</p>
                 <div className="flex items-center justify-between pt-1 border-t border-slate-200/60">
                   <span className="text-xs font-extrabold text-[#EA580C]">{item.price}</span>
-                  <Link to={item.href} className="text-[11px] font-bold text-slate-600 hover:underline">
+                  <Link href={item.href} className="text-[11px] font-bold text-slate-600 hover:underline">
                     Inquire →
                   </Link>
                 </div>

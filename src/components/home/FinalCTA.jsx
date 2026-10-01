@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight, CheckCircle2, MessageCircle, Plane, ShieldCheck, Zap } from "lucide-react";
 
 function FinalCTA() {

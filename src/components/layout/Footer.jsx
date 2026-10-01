@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   CheckCircle2,
   FileText,
@@ -18,7 +18,7 @@ function Footer() {
 
           {/* COL 1: BRAND INFO */}
           <div className="space-y-4">
-            <Link to="/" className="inline-block">
+            <Link href="/" className="inline-block">
               <img
                 src="/logo-white.png"
                 alt="FlyDummyTicket - Travel Plans For A Bigger Tomorrow"
@@ -50,37 +50,37 @@ function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <Link to="/services/flight-reservation" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/flight-reservation" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Dummy Flight Ticket</span>
                   <span className="font-bold text-slate-200">₹299</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/hotel-booking" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/hotel-booking" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Dummy Hotel Booking</span>
                   <span className="font-bold text-slate-200">₹249</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/flight-hotel-package" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/flight-hotel-package" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Flight + Hotel Combo</span>
                   <span className="font-bold text-slate-200">₹499</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/travel-insurance" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/travel-insurance" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Travel Medical Insurance</span>
                   <span className="font-bold text-slate-200">₹699</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/return-ticket" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/return-ticket" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Cancellation Return Ticket</span>
                   <span className="font-bold text-slate-200">₹1,499</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/date-change" className="hover:text-orange-400 transition flex items-center justify-between">
+                <Link href="/services/date-change" className="hover:text-orange-400 transition flex items-center justify-between">
                   <span>Free Date Change Service</span>
                   <span className="font-bold text-emerald-400">FREE</span>
                 </Link>
@@ -95,22 +95,22 @@ function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <Link to="/pricing" className="hover:text-orange-400 transition">
+                <Link href="/pricing" className="hover:text-orange-400 transition">
                   Pricing Plans
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="hover:text-orange-400 transition">
+                <Link href="/how-it-works" className="hover:text-orange-400 transition">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/visa-guide" className="hover:text-orange-400 transition">
+                <Link href="/visa-guide" className="hover:text-orange-400 transition">
                   Embassy Visa Guide
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-orange-400 transition">
+                <Link href="/faq" className="hover:text-orange-400 transition">
                   Frequently Asked Questions
                 </Link>
               </li>
@@ -125,7 +125,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-orange-400 transition">
+                <Link href="/contact" className="hover:text-orange-400 transition">
                   Contact Support
                 </Link>
               </li>
@@ -179,15 +179,15 @@ function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-800/60 pt-4 text-center sm:text-left">
             <p>© {new Date().getFullYear()} FlyDummyTicket. All rights reserved.</p>
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-slate-400">
-              <Link to="/privacy-policy" className="hover:text-white transition">
+              <Link href="/privacy-policy" className="hover:text-white transition">
                 Privacy Policy
               </Link>
               <span>•</span>
-              <Link to="/terms-conditions" className="hover:text-white transition">
+              <Link href="/terms-conditions" className="hover:text-white transition">
                 Terms of Service
               </Link>
               <span>•</span>
-              <Link to="/refund-policy" className="hover:text-white transition">
+              <Link href="/refund-policy" className="hover:text-white transition">
                 Refund Policy
               </Link>
             </div>

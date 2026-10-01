@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Check,
   CheckCircle2,
@@ -110,7 +112,7 @@ function VisaGuide() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
@@ -196,13 +198,13 @@ function VisaGuide() {
             </p>
             <div className="flex gap-3 w-full sm:w-auto">
               <Link
-                to="/services/flight-reservation"
+                href="/services/flight-reservation"
                 className="flex-1 sm:flex-initial rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-5 py-3 text-xs font-bold text-white shadow-md shadow-[#E6582A]/25 text-center transition-all"
               >
                 Get Flight Itinerary (₹299)
               </Link>
               <Link
-                to="/services/flight-hotel-package"
+                href="/services/flight-hotel-package"
                 className="flex-1 sm:flex-initial rounded-xl bg-slate-900 hover:bg-slate-800 px-5 py-3 text-xs font-bold text-white shadow-md text-center transition-all"
               >
                 Get Flight + Hotel (₹499)

@@ -1,22 +1,22 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import Home from "./pages/Home";
-import PricingPage from "./pages/PricingPage";
-import DummyFlightTicket from "./pages/DummyFlightTicket";
-import HotelBooking from "./pages/HotelBooking";
-import ComboPackage from "./pages/ComboPackage";
-import ReturnTicket from "./pages/ReturnTicket";
-import TravelInsurance from "./pages/TravelInsurance";
-import DateChange from "./pages/DateChange";
-import HowItWorksPage from "./pages/HowItWorksPage";
-import VisaGuide from "./pages/VisaGuide";
-import FAQPage from "./pages/FAQPage";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsConditions from "./pages/TermsConditions";
-import RefundPolicy from "./pages/RefundPolicy";
-import NotFound from "./pages/NotFound";
+import Home from "./views/Home";
+import PricingPage from "./views/PricingPage";
+import DummyFlightTicket from "./views/DummyFlightTicket";
+import HotelBooking from "./views/HotelBooking";
+import ComboPackage from "./views/ComboPackage";
+import ReturnTicket from "./views/ReturnTicket";
+import TravelInsurance from "./views/TravelInsurance";
+import DateChange from "./views/DateChange";
+import HowItWorksPage from "./views/HowItWorksPage";
+import VisaGuide from "./views/VisaGuide";
+import FAQPage from "./views/FAQPage";
+import Blog from "./views/Blog";
+import Contact from "./views/Contact";
+import PrivacyPolicy from "./views/PrivacyPolicy";
+import TermsConditions from "./views/TermsConditions";
+import RefundPolicy from "./views/RefundPolicy";
+import NotFound from "./views/NotFound";
 
 function App() {
   return (

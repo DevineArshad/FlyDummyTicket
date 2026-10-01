@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   Calendar,
@@ -49,7 +51,7 @@ function DateChange() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />

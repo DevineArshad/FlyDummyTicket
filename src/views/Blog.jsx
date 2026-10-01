@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { BLOG_POSTS } from "../data/blogPosts";
 import {
   ArrowRight,
   BookOpen,
@@ -15,77 +18,13 @@ import {
   User,
 } from "lucide-react";
 
-const articles = [
-  {
-    id: 1,
-    category: "Visa Guides",
-    title: "How to Apply for a Schengen Visa Without Buying Real Flight Tickets (2026)",
-    excerpt:
-      "Buying expensive non-refundable flight tickets before receiving your visa is a high-risk gamble. Learn why embassies prefer verifiable reservations and how to obtain one.",
-    date: "Sep 5, 2026",
-    readTime: "6 min read",
-    author: "Elena Rostova, Travel Legal Consultant",
-    featured: true,
-  },
-  {
-    id: 2,
-    category: "Airlines & PNR",
-    title: "What is an Airline PNR and How Do Embassies Verify It?",
-    excerpt:
-      "Understand the global distribution system (GDS) behind Passenger Name Records (PNR) and how visa officers verify authentic seat reservations directly with airlines.",
-    date: "Aug 29, 2026",
-    readTime: "4 min read",
-    author: "Capt. Rajesh Sharma",
-  },
-  {
-    id: 3,
-    category: "Digital Nomads",
-    title: "Proof of Onward Travel: Why Airlines Deny Boarding at Check-in",
-    excerpt:
-      "Traveling on a one-way ticket to Southeast Asia or Latin America? Here is how to prevent immigration and check-in desk boarding denial with a rented return ticket.",
-    date: "Aug 21, 2026",
-    readTime: "5 min read",
-    author: "Marcus Vance, Remote Nomad",
-  },
-  {
-    id: 4,
-    category: "Visa Guides",
-    title: "Hotel Booking vs Flight Itinerary: Why Your Dates Must Match Exactly",
-    excerpt:
-      "Consular officers carefully cross-check flight arrival and hotel check-in timestamps. Avoid the #1 reason for documentation inquiries.",
-    date: "Aug 14, 2026",
-    readTime: "4 min read",
-    author: "Priya Menon, Visa Specialist",
-  },
-  {
-    id: 5,
-    category: "Airlines & PNR",
-    title: "Step-by-Step Guide: Checking Your Dummy Ticket on the Airline Website",
-    excerpt:
-      "A pictorial walkthrough showing how to enter your 6-character PNR on Emirates, Lufthansa, and Air France 'Manage Booking' portals.",
-    date: "Aug 02, 2026",
-    readTime: "3 min read",
-    author: "FlyDummyTicket Editorial Team",
-  },
-  {
-    id: 6,
-    category: "Visa Guides",
-    title: "Top 7 Reasons Tourist Visas Get Delayed and How to Fix Them",
-    excerpt:
-      "From incomplete return proofs to mismatched accommodation dates, learn how to audit your submission packet before your appointment.",
-    date: "Jul 25, 2026",
-    readTime: "7 min read",
-    author: "Elena Rostova",
-  },
-];
-
 function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   const categories = ["All", "Visa Guides", "Airlines & PNR", "Digital Nomads"];
 
-  const filteredArticles = articles.filter((art) => {
+  const filteredArticles = BLOG_POSTS.filter((art) => {
     const matchesCat =
       selectedCategory === "All" || art.category === selectedCategory;
     const matchesSearch =
@@ -99,7 +38,7 @@ function Blog() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
@@ -156,8 +95,9 @@ function Blog() {
         {/* Article Grid */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredArticles.map((article) => (
-            <article
-              key={article.id}
+            <Link
+              key={article.slug}
+              href={`/blog/${article.slug}`}
               className="group flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-orange-200 transition-all duration-300"
             >
               <div>
@@ -170,9 +110,9 @@ function Blog() {
                   </span>
                 </div>
 
-                <h3 className="mt-4 text-lg font-bold text-slate-900 group-hover:text-[#E6582A] transition-colors leading-snug">
+                <h2 className="mt-4 text-lg font-bold text-slate-900 group-hover:text-[#E6582A] transition-colors leading-snug">
                   {article.title}
-                </h3>
+                </h2>
 
                 <p className="mt-2.5 text-xs text-slate-500 leading-relaxed">
                   {article.excerpt}
@@ -185,7 +125,7 @@ function Blog() {
                   Read Article <ArrowRight size={13} />
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
@@ -198,7 +138,7 @@ function Blog() {
             </p>
           </div>
           <Link
-            to="/services/flight-reservation"
+            href="/services/flight-reservation"
             className="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-5 py-3 text-xs font-bold text-white shadow-md transition-all shrink-0"
           >
             <span>Get Flight Reservation (₹299)</span>

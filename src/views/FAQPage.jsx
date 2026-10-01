@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import FAQ from "../components/home/FAQ";
 import {
   ArrowRight,
@@ -14,7 +14,7 @@ function FAQPage() {
       {/* Top Banner & Breadcrumb */}
       <div className="pt-10 pb-4 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto">
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />

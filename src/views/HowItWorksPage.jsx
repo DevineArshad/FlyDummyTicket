@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import HowItWorks from "../components/home/HowItWorks";
 import {
   ArrowRight,
@@ -152,7 +154,7 @@ function HowItWorksPage() {
         
         {/* BREADCRUMB */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
@@ -230,7 +232,7 @@ function HowItWorksPage() {
 
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <Link
-                      to={item.href}
+                      href={item.href}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E6582A] hover:underline"
                     >
                       <span>Book {item.title.split(" ")[0]}</span>
@@ -318,7 +320,7 @@ function HowItWorksPage() {
 
           <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <Link
-              to="/services/date-change"
+              href="/services/date-change"
               className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-5 py-3 text-xs font-bold text-white shadow-md transition text-center"
             >
               <span>Free Date Change Portal</span>
@@ -384,7 +386,7 @@ function HowItWorksPage() {
             </a>
 
             <Link
-              to="/services/flight-reservation"
+              href="/services/flight-reservation"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-5 py-3 text-xs font-bold text-white shadow-md transition text-center"
             >
               <span>Book Ticket (₹299)</span>

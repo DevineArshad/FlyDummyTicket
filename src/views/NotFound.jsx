@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft, Home, Plane, Building2, HelpCircle } from "lucide-react";
+import Link from "next/link";
+import { Home, Plane } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -20,14 +20,14 @@ export default function NotFound() {
         {/* Action Links */}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center gap-2 rounded-xl bg-[#E6582A] hover:bg-[#C9441B] px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-[#E6582A]/25 transition-all"
           >
             <Home size={16} />
             <span>Return to Homepage</span>
           </Link>
           <Link
-            to="/services/flight-reservation"
+            href="/services/flight-reservation"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 px-5 py-3 text-xs sm:text-sm font-bold text-slate-700 transition-all"
           >
             <Plane size={16} />
@@ -41,19 +41,19 @@ export default function NotFound() {
             Popular Travel Services
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-700">
-            <Link to="/services/hotel-booking" className="hover:text-[#E6582A] transition">
+            <Link href="/services/hotel-booking" className="hover:text-[#E6582A] transition">
               Hotel Bookings
             </Link>
             <span>•</span>
-            <Link to="/services/flight-hotel-package" className="hover:text-[#E6582A] transition">
+            <Link href="/services/flight-hotel-package" className="hover:text-[#E6582A] transition">
               Flight + Hotel Combo
             </Link>
             <span>•</span>
-            <Link to="/visa-guide" className="hover:text-[#E6582A] transition">
+            <Link href="/visa-guide" className="hover:text-[#E6582A] transition">
               Visa Itinerary Guide
             </Link>
             <span>•</span>
-            <Link to="/faq" className="hover:text-[#E6582A] transition">
+            <Link href="/faq" className="hover:text-[#E6582A] transition">
               FAQs
             </Link>
           </div>

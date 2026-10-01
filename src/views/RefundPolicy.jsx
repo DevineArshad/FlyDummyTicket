@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CheckCircle2, ChevronRight, RotateCcw, ShieldCheck } from "lucide-react";
 
 function RefundPolicy() {
@@ -7,7 +7,7 @@ function RefundPolicy() {
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs font-semibold text-slate-500">
-          <Link to="/" className="transition-colors hover:text-[#E6582A]">
+          <Link href="/" className="transition-colors hover:text-[#E6582A]">
             Home
           </Link>
           <ChevronRight size={13} className="text-slate-400" />
@@ -53,7 +53,7 @@ function RefundPolicy() {
           <section>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2">3. Free Modifications in Lieu of Cancellation</h2>
             <p>
-              If your travel plans change or your visa appointment is rescheduled, you do not need to cancel and re-order. We provide <strong>100% free date changes and name corrections</strong> within 30 days of purchase through our <Link to="/services/date-change" className="text-[#E6582A] font-semibold underline">Free Date Change Service</Link>.
+              If your travel plans change or your visa appointment is rescheduled, you do not need to cancel and re-order. We provide <strong>100% free date changes and name corrections</strong> within 30 days of purchase through our <Link href="/services/date-change" className="text-[#E6582A] font-semibold underline">Free Date Change Service</Link>.
             </p>
           </section>
 
